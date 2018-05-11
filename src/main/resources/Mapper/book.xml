@@ -17,6 +17,7 @@
         select * from borrow
     </select>
 
+    <!--拿到可以被预约的图书-->
     <select id="getRes" parameterType="String" resultType="Book">
 
 
