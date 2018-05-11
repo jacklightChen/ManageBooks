@@ -5,15 +5,15 @@
 
 <mapper namespace="cn.lightina.managebooks.dao.BookMapper">
 
-    <select id="getlist" resultType="BookList">
+    <select id="getList" resultType="BookList">
         select * from booklist
     </select>
 
-    <select id="getlistByQuery" parameterType="String" resultType="BookList">
+    <select id="getListByQuery" parameterType="String" resultType="BookList">
         select * from booklist where bname like CONCAT('%','${query}','%')
     </select>
 
-    <select id="getlistById" parameterType="int" resultType="BookList">
+    <select id="getListById" parameterType="int" resultType="BookList">
         select * from borrow
     </select>
 
@@ -23,6 +23,14 @@
     </select>
 
     <insert id="insertResInfo">
-        insert into reservation (user_id, BID, deadline) values (#{book.})
+        insert into reservation (user_id, book_id, deadline) values (#{user.userId}, #{book.bookId, date_add(now(),interval 10 day)})
     </insert>
+
+    <select id="getResId">
+        select * from reservation where book_id=#{book.bookId} and user_id=#{user.userId}
+    </select>
+
+    <!--<select id="getListById">-->
+        <!--select * from book where ;-->
+    <!--</select>-->
 </mapper>
