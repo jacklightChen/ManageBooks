@@ -15,12 +15,12 @@ public class BookService implements BookServiceimpl {
     /*user*/
     @Override
     public List<BookList> getlist() {
-        return bookMapper.getlist();
+        return bookMapper.getList();
     }
 
     @Override
     public List<BookList> getlistByQuery(String query) {
-        return bookMapper.getlistByQuery(query);
+        return bookMapper.getListByQuery(query);
     }
 
     @Override
@@ -31,10 +31,10 @@ public class BookService implements BookServiceimpl {
     @Override
     public Reservation processRes(String ISBN,User user){
         List<Book>list=bookMapper.getRes(ISBN);
-        if(list==null) throw new ReservationException("预约失败");
+        if(list==null){throw new ReservationException("预约失败");}
         int index=(int)(Math.random()*1000)%list.size();
         int count=bookMapper.insertResInfo(list.get(index),user);
-        if(count<=0)throw new ReservationException("预约失败");
+        if(count<=0){throw new ReservationException("预约失败");}
         Reservation r=bookMapper.getResId(list.get(index),user);
         return r;
     }
