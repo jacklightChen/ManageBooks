@@ -3,33 +3,33 @@ package cn.lightina.managebooks.pojo;
 import java.util.Date;
 
 public class Reservation {
-    private int REID;
-    private int RID;
-    private int BID;
+    private int reservationId;
+    private int userId;
+    private int bookId;
     private Date deadline;
 
-    public int getREID() {
-        return REID;
+    public int getReservationId() {
+        return reservationId;
     }
 
-    public void setREID(int REID) {
-        this.REID = REID;
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
-    public int getRID() {
-        return RID;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setRID(int RID) {
-        this.RID = RID;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getBID() {
-        return BID;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBID(int BID) {
-        this.BID = BID;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public Date getDeadline() {

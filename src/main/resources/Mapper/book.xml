@@ -19,6 +19,10 @@
 
     <!--拿到可以被预约的图书-->
     <select id="getRes" parameterType="String" resultType="Book">
-        select * from book where ISBN=${isbn} and (state=0 or (state=2 and BID not in (select BID from reservation))) order by state
+        select * from book where ISBN=#{isbn} and (state=0 or (state=2 and BID not in (select BID from reservation))) order by state
     </select>
+
+    <insert id="insertResInfo">
+        insert into reservation (user_id, BID, deadline) values (#{book.})
+    </insert>
 </mapper>
