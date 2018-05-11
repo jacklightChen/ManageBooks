@@ -23,10 +23,10 @@
     </select>
 
     <insert id="insertResInfo">
-        insert into reservation (user_id, book_id, deadline) values (#{user.userId}, #{book.bookId, date_add(now(),interval 10 day)})
+        insert into reservation (user_id, book_id, deadline) values (#{user.userId}, #{book.bookId}, date_add(now(),interval 10 day))
     </insert>
 
-    <select id="getResId">
+    <select id="getResId" resultType="Reservation">
         select * from reservation where book_id=#{book.bookId} and user_id=#{user.userId}
     </select>
 
