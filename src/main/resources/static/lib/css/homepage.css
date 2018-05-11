@@ -1,0 +1,14 @@
+.item {
+    width: 20%;
+    border: 1px solid #e4ecf3;
+    box-shadow: 1px 2px 3px #f2f6f8;
+    border-radius: 6px;
+    background: #fff;
+    padding: 10px;
+    min-width: 200px;
+    margin: 22px 0 0 2.1%;
+    float: left;
+    overflow: hidden;
+    transition: all .3s;
+}
+.table>thead>tr>th { text-align: center;}

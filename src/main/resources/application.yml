@@ -1,0 +1,18 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+  datasource:
+        name: test
+        url: jdbc:mysql://115.159.112.233:3306/library?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: qweasdzxc18czc
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:Mapper/*.xml
+  type-aliases-package: cn.lightina.managebooks.pojo
