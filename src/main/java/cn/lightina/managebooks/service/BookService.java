@@ -1,10 +1,7 @@
 package cn.lightina.managebooks.service;
 
 import cn.lightina.managebooks.dao.BookMapper;
-import cn.lightina.managebooks.pojo.Book;
-import cn.lightina.managebooks.pojo.BookList;
-import cn.lightina.managebooks.pojo.Borrow;
-import cn.lightina.managebooks.pojo.Reservation;
+import cn.lightina.managebooks.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +25,11 @@ public class BookService implements BookServiceimpl {
     @Override
     public List<Book> getlistByuId(int userId) {
         return null;
+    }
+
+    @Override
+    public ReservationResult<Reservation> processRes(String ISBN){
+
     }
 
     @Override

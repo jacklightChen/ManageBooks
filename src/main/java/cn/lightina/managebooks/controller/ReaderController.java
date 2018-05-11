@@ -1,7 +1,6 @@
 package cn.lightina.managebooks.controller;
 
-import cn.lightina.managebooks.pojo.BookList;
-import cn.lightina.managebooks.pojo.User;
+import cn.lightina.managebooks.pojo.*;
 import cn.lightina.managebooks.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,7 +46,8 @@ public class ReaderController {
                                    @PathVariable(value="ISBN")String ISBN){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-
+        ReservationResult<Reservation> rr;
+        rr=bookService.processRes(ISBN);
 
         return "user_reservation";
     }

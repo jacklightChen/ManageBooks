@@ -1,9 +1,6 @@
 package cn.lightina.managebooks.service;
 
-import cn.lightina.managebooks.pojo.Book;
-import cn.lightina.managebooks.pojo.BookList;
-import cn.lightina.managebooks.pojo.Borrow;
-import cn.lightina.managebooks.pojo.Reservation;
+import cn.lightina.managebooks.pojo.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ public interface BookServiceimpl {
     List<BookList> getlistByQuery(String query);
     List<Book> getlistByuId(int userId);
     int deleteByBId(int bookId);
+    ReservationResult<Reservation> processRes(String ISBN);
 
     /*admin*/
     int addBook(Book book,int num);
