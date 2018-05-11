@@ -10,7 +10,7 @@ public interface BookServiceimpl {
     List<BookList> getlistByQuery(String query);
     List<Book> getlistByuId(int userId);
     int deleteByBId(int bookId);
-    ReservationResult<Reservation> processRes(String ISBN);
+    Reservation processRes(String ISBN,User);
 
     /*admin*/
     int addBook(Book book,int num);

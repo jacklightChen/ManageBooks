@@ -2,6 +2,7 @@ package cn.lightina.managebooks.dao;
 
 import cn.lightina.managebooks.pojo.Book;
 import cn.lightina.managebooks.pojo.BookList;
+import cn.lightina.managebooks.pojo.Reservation;
 import cn.lightina.managebooks.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,5 +15,7 @@ public interface BookMapper {
     /*插入预约记录*/
     int insertResInfo(@Param("book")Book book,@Param("user")User user);
     /*获取预约号*/
+    Reservation getResId(@Param("book")Book book,@Param("user")User user);
+
     List<Book> getlistByuId(@Param("userId")int userId);
 }
