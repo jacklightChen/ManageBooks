@@ -14,7 +14,7 @@ public interface BookServiceimpl {
     List<ReservationDetail> getResById(User user);
 
     /*admin*/
-    int addBook(Book book,int num);
+    int addBookList(BookList booklist);
     Book insertBorrow(BookList booklist,int userId);
     List<Reservation> getResInfo();
     List<BorrowDetail> getBorInfo(User user);

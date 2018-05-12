@@ -72,3 +72,43 @@ $('#add').find('input').eq(5).change(function() {
         fail($(this), 5, '请输入数字',checkadd,0);
     }
 });
+
+
+//add
+$('#btn-addr').click(function(e) {
+    if (!checkadd.every(function(value) {
+            return value == true
+        })) {
+        e.preventDefault();
+        for (key in checkadd) {
+            if (!checkadd[key]) {
+                $('#add').find('input').eq(key).parent().parent().removeClass('has-success').addClass('has-error')
+            }
+        }
+    }else{
+        var ISBN=document.getElementById("ad-ISBN").value;
+        var bname=document.getElementById("ad-bname").value;
+        var publisher=document.getElementById("ad-publisher").value;
+        var writer=document.getElementById("ad-writer").value;
+        var ptime=document.getElementById("ad-ptime").value;
+        var number=document.getElementById("ad-number").value;
+        var booklist={'ISBN':ISBN,'bname':bname,
+        'publisher':publisher,'writer':writer,
+        'ptime':ptime,'number':number};
+        var JSONdata=JSON.stringify(booklist);
+        $.ajax({
+            type:"post",
+            url: "/managebooks/books",
+            data:JSONdata,
+            dataType:"json",
+            contentType : "application/json;charset=UTF-8",
+            success: function(result){
+                if(result['success']){
+                    alert("添加成功");
+                }else{
+                    alert("添加失败");
+                }
+            }
+        });
+    }
+});

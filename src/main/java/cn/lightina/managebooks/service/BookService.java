@@ -1,5 +1,6 @@
 package cn.lightina.managebooks.service;
 
+import cn.lightina.managebooks.Exception.AddBookListException;
 import cn.lightina.managebooks.Exception.ReservationException;
 import cn.lightina.managebooks.dao.BookMapper;
 import cn.lightina.managebooks.pojo.*;
@@ -54,8 +55,10 @@ public class BookService implements BookServiceimpl {
     /**/
 
     @Override
-    public int addBook(Book book, int num) {
-        return 0;
+    public int addBookList(BookList bookList) {
+        int count=bookMapper.addBookList(bookList);
+        if(count<=0)throw new AddBookListException("添加失败");
+        return count;
     }
 
     @Override

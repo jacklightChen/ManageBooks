@@ -22,4 +22,8 @@ public interface BookMapper {
     // 根据userid获取已借阅记录
     List<BorrowDetail> getBorById(@Param("user")User user);
     List<Book> getListById(@Param("user")User user);
+
+    /*admin*/
+    // TODO: 2018/5/12
+    int addBookList(@Param("booklist")BookList booklist);
 }

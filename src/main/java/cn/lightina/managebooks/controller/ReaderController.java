@@ -5,9 +5,7 @@ import cn.lightina.managebooks.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -93,10 +91,9 @@ public class ReaderController {
         return "user_borrow";
     }
 
-    // TODO: 2018/5/12 czh addbook
     @RequestMapping(value="/books",
             method = RequestMethod.GET)
-    public String addBook(Model model,HttpServletRequest request){
+    public String showBook(Model model,HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         List<BookList>list=bookService.getlist();
@@ -104,5 +101,22 @@ public class ReaderController {
         return "admin_addbook";
     }
 
+    //添加图书
+    @RequestMapping(value = "/books",
+                    method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public AddResult addbook(HttpServletRequest request,
+                             @RequestBody BookList bookList){
+        User user=(User)request.getSession().getAttribute("user");
+        AddResult ar;
+        try {
+            bookService.addBookList(bookList);
+            ar=new AddResult(true);
+        }catch (Exception e){
+            ar=new AddResult(false);
+        }
+        return ar;
+    }
 
 }
