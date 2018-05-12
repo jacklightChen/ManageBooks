@@ -93,5 +93,16 @@ public class ReaderController {
         return "user_borrow";
     }
 
+    // TODO: 2018/5/12 czh addbook
+    @RequestMapping(value="/books",
+            method = RequestMethod.GET)
+    public String addBook(Model model,HttpServletRequest request){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        List<BookList>list=bookService.getlist();
+        model.addAttribute("list",list);
+        return "admin_addbook";
+    }
+
 
 }

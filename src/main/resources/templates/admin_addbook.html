@@ -2,16 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>预约图书</title>
+    <title>添加图书</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/lib/css/homepage.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div th:include="../static/common/headbar::headbar"></div>
-<div th:include="./detail_admin:homepage"></div>
+<div th:include="./detail_admin::homepage"></div>
 <div style="padding: 20px 550px 10px">
     <button class="btn btn-success"
             data-toggle="modal" data-target="#add">添加图书
@@ -46,8 +47,8 @@
                     <div class="form-group has-feedback">
                         <label for="ad-bname">书名</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input id="ad-bname" class="form-control" placeholder="请输入书名" maxlength="10" type="password">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                            <input id="ad-bname" class="form-control" placeholder="请输入书名" maxlength="10">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -58,8 +59,8 @@
                     <div class="form-group has-feedback">
                         <label for="ad-publisher">出版社</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input id="ad-publisher" class="form-control" placeholder="请输入出版社" maxlength="10" type="password">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                            <input id="ad-publisher" class="form-control" placeholder="请输入出版社" maxlength="10">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -70,8 +71,8 @@
                     <div class="form-group has-feedback">
                         <label for="ad-writer">作者</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input id="ad-writer" class="form-control" placeholder="请输入作者" maxlength="10" type="password">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input id="ad-writer" class="form-control" placeholder="请输入作者" maxlength="10">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -82,8 +83,8 @@
                     <div class="form-group has-feedback">
                         <label for="ad-ptime">出版时间</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input id="ad-ptime" class="form-control" placeholder="请输入出版时间" maxlength="10" type="password">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input id="ad-ptime" class="form-control" placeholder="请输入出版时间" maxlength="10">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -94,8 +95,8 @@
                     <div class="form-group has-feedback">
                         <label for="ad-num">数量</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input id="ad-num" class="form-control" placeholder="请输入数量" maxlength="4" type="password">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
+                            <input id="ad-num" class="form-control" placeholder="请输入数量" maxlength="4">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -115,6 +116,34 @@
     </div>
 </div>
 
+<div class="panel panel-default" style="width: 90%;margin-left: 5%">
+    <div class="panel-heading">
+        <h3 class="panel-title" style="text-align:center">图书信息</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover" style="text-align:center">
+            <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>书名</th>
+                <th>出版社</th>
+                <th>作者</th>
+                <th>出版时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="booklist: ${list}">
+                <td th:text="${booklist.ISBN}"></td>
+                <td th:text="${booklist.bname}"></td>
+                <td th:text="${booklist.publisher}"></td>
+                <td th:text="${booklist.writer}"></td>
+                <td th:text="(${booklist.ptime.getYear()}+1900)+'年'"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<script src="../static/lib/js/check.js"></script>
 </body>
 </html>
