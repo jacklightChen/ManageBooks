@@ -35,6 +35,9 @@ public class BookService implements BookServiceimpl {
         int count=bookMapper.insertResInfo(list.get(0),user);
         if(count<=0){throw new ReservationException("预约失败");}
         Reservation r=bookMapper.getResId(list.get(0),user);
+        System.out.println(r.getReservationId());
+        System.out.println(r.getBookId());
+        System.out.println(r.getUserId());
         return r;
     }
 

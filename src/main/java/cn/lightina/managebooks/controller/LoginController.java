@@ -23,6 +23,7 @@ public class LoginController {
     public String detail(Model model,HttpServletRequest request){
         User user=new User();
         user.setUserName("hhh");
+        user.setUserId(26);
         model.addAttribute("user",user);
         request.getSession().setAttribute("user",user);
         return "detail_user";

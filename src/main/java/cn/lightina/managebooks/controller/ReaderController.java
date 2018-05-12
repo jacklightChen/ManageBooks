@@ -61,7 +61,7 @@ public class ReaderController {
             rr=new ReservationResult<>(false,"预约失败");
         }
         if(rr.isSuccess()){
-            pw.print("<script>alert('预约成功,您的预约号为"+r.getReservationId()+");window.location.href='/managebooks/reservation';</script>");
+            pw.print("<script>alert('预约成功,您的预约号为: "+r.getReservationId()+"');window.location.href='/managebooks/reservation';</script>");
         }else{
             pw.print("<script>alert('预约失败,请重新预约!');window.location.href='/managebooks/reservation';</script>");
         }

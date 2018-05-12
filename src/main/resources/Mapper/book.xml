@@ -30,7 +30,5 @@
         select * from reservation where book_id=#{book.bookId} and user_id=#{user.userId}
     </select>
 
-    <!--<select id="getListById">-->
-        <!--select * from book where ;-->
-    <!--</select>-->
+
 </mapper>
