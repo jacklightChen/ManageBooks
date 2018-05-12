@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>预约图书</title>
+    <title>预约情况</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/lib/css/homepage.css">
@@ -12,41 +12,26 @@
 <body>
 <div th:include="../static/common/headbar::headbar"></div>
 <div th:include="./detail_user::homepage"></div>
-<div style="padding: 20px 550px 10px">
-    <form   method="post" action="/managebooks/query" class="form-inline"  id="searchform">
-        <div class="input-group">
-            <input type="text" placeholder="输入图书名" class="form-control" name="bname">
-            <span class="input-group-btn">
-                <input type="submit" value="搜索" class="btn btn-default">
-            </span>
-        </div>
-    </form>
-</div>
-
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
     <div class="panel-heading">
-        <h3 class="panel-title" style="text-align:center">可预约图书</h3>
+        <h3 class="panel-title" style="text-align:center">预约记录</h3>
     </div>
     <div class="panel-body">
         <table class="table table-hover" style="text-align:center">
             <thead>
             <tr>
-                <th>ISBN</th>
+                <th>预约号</th>
                 <th>书名</th>
-                <th>出版社</th>
-                <th>作者</th>
-                <th>出版时间</th>
+                <th>过期时间</th>
                 <th>预约</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="booklist: ${list}">
-                <td th:text="${booklist.ISBN}"></td>
-                <td th:text="${booklist.bname}"></td>
-                <td th:text="${booklist.publisher}"></td>
-                <td th:text="${booklist.writer}"></td>
-                <td th:text="(${booklist.ptime.getYear()}+1900)+'年'"></td>
-                <td><a th:href="'/managebooks/'+${booklist.ISBN}+'/reservation'"><button type="button" class="btn btn-info">预约</button></a></td>
+            <tr th:each="res: ${list}">
+                <td th:text="${res.deadline}"></td>
+                <td th:text="${res.bname}"></td>
+                <td th:text="(${res.deadline})+'年'"></td>
+                <!--<td><a th:href="'/managebooks/'+${booklist.ISBN}+'/booklist'"><button type="button" class="btn btn-info">预约</button></a></td>-->
             </tr>
             </tbody>
         </table>

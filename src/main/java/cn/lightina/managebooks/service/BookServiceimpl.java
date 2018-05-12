@@ -11,6 +11,7 @@ public interface BookServiceimpl {
     List<Book> getlistByuId(int userId);
     int deleteByBId(int bookId);
     Reservation processRes(String ISBN,User user);
+    List<ReservationDetail> getResById(User user);
 
     /*admin*/
     int addBook(Book book,int num);

@@ -20,14 +20,14 @@ public class ReaderController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value="/reservation",
+    @RequestMapping(value="/booklist",
             method = RequestMethod.GET)
     public String listBookList(Model model,HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         List<BookList>list=bookService.getlist();
         model.addAttribute("list",list);
-        return "user_reservation";
+        return "user_booklist";
     }
 
     @RequestMapping(value="/query",
@@ -38,10 +38,10 @@ public class ReaderController {
         String bname=request.getParameter("bname");
         List<BookList>list=bookService.getlistByQuery(bname);
         model.addAttribute("list",list);
-        return "user_reservation";
+        return "user_booklist";
     }
 
-    @RequestMapping(value="/{ISBN}/reservation",
+    @RequestMapping(value="/{ISBN}/booklist",
             method = RequestMethod.GET)
     public String listBookListById(Model model,
                                    HttpServletRequest request,
@@ -66,6 +66,18 @@ public class ReaderController {
             pw.print("<script>alert('预约失败,请重新预约!');window.location.href='/managebooks/reservation';</script>");
         }
         List<BookList>list=bookService.getlist();
+        model.addAttribute("list",list);
+        return "user_booklist";
+    }
+
+    // TODO: 2018/5/12 czh
+    @RequestMapping(value = "/reservation",
+                    method = RequestMethod.GET)
+    public String listResListById(Model model,
+                                  HttpServletRequest request){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        List<ReservationDetail>list=bookService.getResById(user);
         model.addAttribute("list",list);
         return "user_reservation";
     }
