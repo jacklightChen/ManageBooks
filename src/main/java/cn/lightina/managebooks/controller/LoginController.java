@@ -26,6 +26,9 @@ public class LoginController {
         user.setUserId(26);
         model.addAttribute("user",user);
         request.getSession().setAttribute("user",user);
-        return "detail_user";
+        if(!user.getUserName().equals("hhh"))
+            return "detail_user";
+        else
+            return "detail_admin";
     }
 }
