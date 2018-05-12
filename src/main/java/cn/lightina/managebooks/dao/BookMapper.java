@@ -16,10 +16,10 @@ public interface BookMapper {
 
     // TODO: 2018/5/12 修改！！！
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
-    List<ReservationDetail> getResById(User user);
+    List<ReservationDetail> getResById(@Param("user")User user);
 
     // 根据userid获取已借阅记录
-    List<Borrow> getBorById();
+    List<Borrow> getBorById(@Param("user")User user);
 
 
     List<Book> getListById(@Param("user")User user);
