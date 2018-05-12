@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class BookService implements BookServiceimpl {
     @Autowired(required = false)
@@ -30,12 +31,16 @@ public class BookService implements BookServiceimpl {
     }
 
     @Override
-    public Reservation processRes(String ISBN,User user){
-        List<Book>list=bookMapper.getRes(ISBN);
-        if(list==null){throw new ReservationException("预约失败");}
-        int count=bookMapper.insertResInfo(list.get(0),user);
-        if(count<=0){throw new ReservationException("预约失败");}
-        Reservation r=bookMapper.getResId(list.get(0),user);
+    public Reservation processRes(String ISBN, User user) {
+        List<Book> list = bookMapper.getRes(ISBN);
+        if (list == null) {
+            throw new ReservationException("预约失败");
+        }
+        int count = bookMapper.insertResInfo(list.get(0), user);
+        if (count <= 0) {
+            throw new ReservationException("预约失败");
+        }
+        Reservation r = bookMapper.getResId(list.get(0), user);
         // TODO: 2018/5/12 czc
         //这边的预约类属性全是0
         System.out.println(r.getReservationId());
@@ -46,9 +51,9 @@ public class BookService implements BookServiceimpl {
     @Override
     public int deleteByBId(int bookId) {
         /*
-        * 先根据uid bookid => borrowid
-        * upadte borrow enddate
-        * */
+         * 先根据uid bookid => borrowid
+         * upadte borrow enddate
+         * */
         return 0;
     }
 
@@ -56,8 +61,8 @@ public class BookService implements BookServiceimpl {
 
     @Override
     public int addBookList(BookList bookList) {
-        int count=bookMapper.addBookList(bookList);
-        if(count<=0)throw new AddBookListException("添加失败");
+        int count = bookMapper.addBookList(bookList);
+        if (count <= 0) throw new AddBookListException("添加失败");
         return count;
     }
 

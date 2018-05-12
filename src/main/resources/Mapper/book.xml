@@ -30,8 +30,8 @@
         select * from reservation where book_id=#{book.bookId} and user_id=#{user.userId}
     </select>
 
-    <select id="getResById" resultType="ReservationDetail" parameterType="User">
-        select bname, reservation_id, deadline from booklist, book, reader, reservation where reservation.user_id = reader.user_id and reservation.book_id = book.book_id and book.ISBN = booklist.ISBN and reader.user_id = #{user.userId}
+    <select id="getResById" resultType="ReservationDetail">
+        select reservation_id, bname, deadline from reservation_detail where user_id = #{user.userId};
     </select>
 
     <select id="getBorById" resultType="Borrow" parameterType="User">

@@ -21,9 +21,12 @@ public class BookList {
         this.operator = operator;
     }
 
-    public BookList() {}
+    public BookList() {
+    }
 
-    public String getISBN() { return ISBN; }
+    public String getISBN() {
+        return ISBN;
+    }
 
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;

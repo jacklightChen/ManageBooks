@@ -16,3 +16,6 @@ spring:
 mybatis:
   mapper-locations: classpath:Mapper/*.xml
   type-aliases-package: cn.lightina.managebooks.pojo
+#  todo：czh，接锅
+  configuration:
+    map-underscore-to-camel-case: true

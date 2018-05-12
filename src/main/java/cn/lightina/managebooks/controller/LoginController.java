@@ -12,21 +12,21 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/managebooks")
 public class LoginController {
 
-    @RequestMapping(value="/login",
-                    method = RequestMethod.GET)
-    public String login(){
+    @RequestMapping(value = "/login",
+            method = RequestMethod.GET)
+    public String login() {
         return "login";
     }
 
-    @RequestMapping(value="/detail",
+    @RequestMapping(value = "/detail",
             method = RequestMethod.GET)
-    public String detail(Model model,HttpServletRequest request){
-        User user=new User();
+    public String detail(Model model, HttpServletRequest request) {
+        User user = new User();
         user.setUserName("hhh");
         user.setUserId(26);
-        model.addAttribute("user",user);
-        request.getSession().setAttribute("user",user);
-        if(!user.getUserName().equals("hhh"))
+        model.addAttribute("user", user);
+        request.getSession().setAttribute("user", user);
+        if (!user.getUserName().equals("hhh"))
             return "detail_user";
         else
             return "detail_admin";

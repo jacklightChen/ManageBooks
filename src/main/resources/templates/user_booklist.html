@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>预约图书</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/lib/css/homepage.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 <div th:include="../static/common/headbar::headbar"></div>
 <div th:include="./detail_user::homepage"></div>
 <div style="padding: 20px 550px 10px">
-    <form   method="post" action="/managebooks/query" class="form-inline"  id="searchform">
+    <form method="post" action="/managebooks/query" class="form-inline" id="searchform">
         <div class="input-group">
             <input type="text" placeholder="输入图书名" class="form-control" name="bname">
             <span class="input-group-btn">
@@ -46,7 +46,9 @@
                 <td th:text="${booklist.publisher}"></td>
                 <td th:text="${booklist.writer}"></td>
                 <td th:text="(${booklist.ptime.getYear()}+1900)+'年'"></td>
-                <td><a th:href="'/managebooks/'+${booklist.ISBN}+'/booklist'"><button type="button" class="btn btn-info">预约</button></a></td>
+                <td><a th:href="'/managebooks/'+${booklist.ISBN}+'/booklist'">
+                    <button type="button" class="btn btn-info">预约</button>
+                </a></td>
             </tr>
             </tbody>
         </table>
