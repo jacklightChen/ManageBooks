@@ -14,7 +14,7 @@ public interface BookMapper {
     /*获取预约号*/
     Reservation getResId(@Param("book")Book book,@Param("user")User user);
 
-    // TODO: 2018/5/12 czc快写
+    // TODO: 2018/5/12 修改！！！
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
     List<ReservationDetail> getResById(User user);
 
@@ -22,5 +22,5 @@ public interface BookMapper {
     List<Borrow> getBorById();
 
 
-    List<Book> getListById(@Param("userId")int userId);
+    List<Book> getListById(@Param("user")User user);
 }

@@ -4,8 +4,8 @@ import cn.lightina.managebooks.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
-//    todo：写完了，czh看看能不能用
+    // TODO: 2018/5/12 修改 ！！！
     //通过username和passwd 验证用户 reader
-    User checkUser(@Param("username")String username, @Param("password")String password);
+    User checkUser(@Param("user")User user);
 
 }
