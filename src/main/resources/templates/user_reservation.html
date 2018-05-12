@@ -28,9 +28,9 @@
             </thead>
             <tbody>
             <tr th:each="res: ${list}">
-                <td th:text="${res.deadline}"></td>
+                <td th:text="${res.reservationId}"></td>
                 <td th:text="${res.bname}"></td>
-                <td th:text="(${res.deadline})+'年'"></td>
+                <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
                 <!--<td><a th:href="'/managebooks/'+${booklist.ISBN}+'/booklist'"><button type="button" class="btn btn-info">预约</button></a></td>-->
             </tr>
             </tbody>

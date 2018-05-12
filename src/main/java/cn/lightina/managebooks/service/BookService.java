@@ -35,7 +35,7 @@ public class BookService implements BookServiceimpl {
         int count=bookMapper.insertResInfo(list.get(0),user);
         if(count<=0){throw new ReservationException("预约失败");}
         Reservation r=bookMapper.getResId(list.get(0),user);
-        // TODO: 2018/5/12
+        // TODO: 2018/5/12 czc
         //这边的预约类属性全是0
         System.out.println(r.getReservationId());
         System.out.println(r.getBookId());
@@ -74,7 +74,7 @@ public class BookService implements BookServiceimpl {
     }
 
     @Override
-    public List<Borrow> getBorInfo(User user) {
+    public List<BorrowDetail> getBorInfo(User user) {
         return bookMapper.getBorById(user);
     }
 

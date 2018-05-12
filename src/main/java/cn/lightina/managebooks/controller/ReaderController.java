@@ -63,11 +63,11 @@ public class ReaderController {
         if(rr.isSuccess()){
             pw.print("<script>alert('预约成功,您的预约号为: "+r.getReservationId()+"');window.location.href='/managebooks/reservation';</script>");
         }else{
-            pw.print("<script>alert('预约失败,请重新预约!');window.location.href='/managebooks/reservation';</script>");
+            pw.print("<script>alert('预约失败,请重新预约!');window.location.href='/managebooks/booklist';</script>");
         }
         List<BookList>list=bookService.getlist();
         model.addAttribute("list",list);
-        return "user_booklist";
+        return "";
     }
 
     // TODO: 2018/5/12 czh
@@ -88,7 +88,7 @@ public class ReaderController {
                                   HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<Borrow>list=bookService.getBorInfo(user);
+        List<BorrowDetail>list=bookService.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
     }

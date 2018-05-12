@@ -17,5 +17,5 @@ public interface BookServiceimpl {
     int addBook(Book book,int num);
     Book insertBorrow(BookList booklist,int userId);
     List<Reservation> getResInfo();
-    List<Borrow> getBorInfo(User user);
+    List<BorrowDetail> getBorInfo(User user);
 }
