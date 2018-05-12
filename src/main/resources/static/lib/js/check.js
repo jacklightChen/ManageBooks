@@ -100,7 +100,7 @@ $('#btn-add').click(function (e) {
         var JSONdata = JSON.stringify(booklist);
         $.ajax({
             type: "post",
-            url: "/managebooks/books",
+            url: "/managebooks/admin/books",
             data: JSONdata,
             dataType: "json",
             contentType: "application/json;charset=UTF-8",

@@ -32,4 +32,9 @@ public interface BookMapper {
     /*admin*/
     // TODO: 2018/5/12
     int addBookList(@Param("booklist") BookList booklist);
+
+    // TODO: 2018/5/12 czc
+    //管理员获取所有预约记录 注意返回值需要的是包装起来的书名和预约号还有用户名
+    List<ReservationDetail> getResList();
+
 }

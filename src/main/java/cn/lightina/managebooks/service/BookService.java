@@ -86,5 +86,8 @@ public class BookService implements BookServiceimpl {
         return bookMapper.getBorById(user);
     }
 
-
+    @Override
+    public List<ReservationDetail> getResList() {
+        return bookMapper.getResList();
+    }
 }
