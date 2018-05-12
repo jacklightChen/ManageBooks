@@ -31,12 +31,23 @@
     </select>
 
     <select id="getResById" resultType="ReservationDetail">
-        select reservation_id, bname, deadline from reservation_detail where user_id = #{user.userId};
+        select reservation_id, bname, deadline, user_name from reservation_detail where user_id = #{user.userId};
     </select>
 
-    <select id="getBorById" resultType="Borrow" parameterType="User">
-        select * from borrow where user_id=#{user.userId}
+    <select id="getBorById" resultType="BorrowDetail" parameterType="User">
+        select borrow_id, bname, btime, deadline, rtime from borrow_detail where user_id=#{user.userId}
     </select>
 
 
+    <!--<select id="getListById" resultType="Book" parameterType="User">-->
+
+    <!--</select>-->
+
+    <!--<insert id="addBookList" parameterType="BookList">-->
+        <!---->
+    <!--</insert>-->
+
+    <select id="getResList" resultType="ReservationDetail">
+        select reservation_id, bname, deadline, user_name from reservation_detail
+    </select>
 </mapper>

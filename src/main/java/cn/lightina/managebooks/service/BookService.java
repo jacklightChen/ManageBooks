@@ -41,8 +41,7 @@ public class BookService implements BookServiceimpl {
             throw new ReservationException("预约失败");
         }
         Reservation r = bookMapper.getResId(list.get(0), user);
-        // TODO: 2018/5/12 czc
-        //这边的预约类属性全是0
+//        todo:czh: 单步调试没问题，并不是0
         System.out.println(r.getReservationId());
         System.out.println(r.getBookId());
         return r;

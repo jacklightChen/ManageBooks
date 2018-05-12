@@ -19,21 +19,25 @@ public interface BookMapper {
     /*获取预约号*/
     Reservation getResId(@Param("book") Book book, @Param("user") User user);
 
+    //    todo:czh: 写完了应该没有偏差,测试一下
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
     List<ReservationDetail> getResById(@Param("user") User user);
 
-    // TODO: 2018/5/12 czc 修改sql 返回borrowdetail
+//    todo:czh: getBorById写完了应该没有偏差,测试一下
     //List<BorrowDetail> getBorById(@Param("user")User user);
     // 根据userid获取已借阅记录
     List<BorrowDetail> getBorById(@Param("user") User user);
 
+
+//    todo:czh:没注释不知道写啥
     List<Book> getListById(@Param("user") User user);
 
     /*admin*/
     // TODO: 2018/5/12
+//    todo:czh: 没注释不知道写啥
     int addBookList(@Param("booklist") BookList booklist);
 
-    // TODO: 2018/5/12 czc
+    //    todo:czh: 写完了应该没有偏差,测试一下
     //管理员获取所有预约记录 注意返回值需要的是包装起来的书名和预约号还有用户名
     List<ReservationDetail> getResList();
 
