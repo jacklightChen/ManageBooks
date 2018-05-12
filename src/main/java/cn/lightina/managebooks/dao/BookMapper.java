@@ -14,13 +14,14 @@ public interface BookMapper {
     /*获取预约号*/
     Reservation getResId(@Param("book")Book book,@Param("user")User user);
 
-    // TODO: 2018/5/12 czc快写
+
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
-    List<ReservationDetail> getResById(User user);
+    List<ReservationDetail> getResById(@Param("user")User user);
 
     // 根据userid获取已借阅记录
-    List<Borrow> getBorById();
+    List<Borrow> getBorById(@Param("userId")String userid);
 
-
+//    todo: czh写注释，不写注释我怎么知道写啥
+//    todo: 然后看看上面写得对不对
     List<Book> getListById(@Param("userId")int userId);
 }

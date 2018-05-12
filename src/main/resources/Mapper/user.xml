@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.lightina.managebooks.dao.UserMapper">
-
+    <select id="checkUser" resultType="User">
+        select * from reader where user_name=#{username} and pass_wd=#{password}
+    </select>
 
 </mapper>
