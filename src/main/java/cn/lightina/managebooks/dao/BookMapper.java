@@ -19,7 +19,7 @@ public interface BookMapper {
     List<ReservationDetail> getResById(User user);
 
     // 根据userid获取已借阅记录
-    List<Borrow> getBorById();
+    List<Borrow> getBorById(User user);
 
 
     List<Book> getListById(@Param("userId")int userId);

@@ -74,8 +74,8 @@ public class BookService implements BookServiceimpl {
     }
 
     @Override
-    public List<Borrow> getBorInfo() {
-        return null;
+    public List<Borrow> getBorInfo(User user) {
+        return bookMapper.getBorById(user);
     }
 
 

@@ -82,6 +82,16 @@ public class ReaderController {
         return "user_reservation";
     }
 
+    @RequestMapping(value = "/borrow",
+                    method = RequestMethod.GET)
+    public String listBorListById(Model model,
+                                  HttpServletRequest request){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        List<Borrow>list=bookService.getBorInfo(user);
+        model.addAttribute("list",list);
+        return "user_borrow";
+    }
 
 
 }
