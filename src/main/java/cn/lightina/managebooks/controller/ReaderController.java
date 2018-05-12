@@ -104,7 +104,7 @@ public class ReaderController {
     //添加图书
     @RequestMapping(value = "/books",
                     method = RequestMethod.POST,
-            produces = {"application/json;charset=UTF-8"})
+                    produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public AddResult addbook(HttpServletRequest request,
                              @RequestBody BookList bookList){
@@ -119,4 +119,19 @@ public class ReaderController {
         return ar;
     }
 
+
+    // TODO: 2018/5/12 czh process res
+    /* to be discussed
+    @RequestMapping(value = "/reservation",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    public String listResListById(Model model,
+                                  HttpServletRequest request){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        List<ReservationDetail>list=bookService.getResById(user);
+        model.addAttribute("list",list);
+        return "user_reservation";
+    }
+    */
 }

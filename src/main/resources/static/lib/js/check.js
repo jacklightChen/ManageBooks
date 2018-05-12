@@ -75,7 +75,7 @@ $('#add').find('input').eq(5).change(function() {
 
 
 //add
-$('#btn-addr').click(function(e) {
+$('#btn-add').click(function(e) {
     if (!checkadd.every(function(value) {
             return value == true
         })) {
