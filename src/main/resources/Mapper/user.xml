@@ -5,7 +5,11 @@
 
 <mapper namespace="cn.lightina.managebooks.dao.UserMapper">
     <select id="checkUser" resultType="User">
-        select * from reader where user_name=#{username} and pass_wd=#{password}
+        select * from reader where user_name=#{user.userName} and pass_wd=#{user.passWd}
+    </select>
+
+    <select id="checkManager" resultType="User">
+        select manager_id as user_id, pass_wd, mname as rname from manager where manager_id=#{user.userName} and pass_wd=#{user.passWd};
     </select>
 
 </mapper>
