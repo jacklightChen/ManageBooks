@@ -101,6 +101,7 @@ public class ReaderController {
             @PathVariable(value = "borrowId")Integer borrowId){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
+        // TODO: 2018/5/13 czc  book_id对应的书归还入库——修改book.state为1——在reservation表中设置对应记录的deadline 您的触发器接口
         List<BorrowDetail>list=bookService.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
@@ -162,5 +163,19 @@ public class ReaderController {
         List<ReservationDetail>list=bookService.getResList();
         model.addAttribute("list",list);
         return "admin_processreservation";
+    }
+
+    /*查看借阅情况*/
+    @RequestMapping(
+            value = "/admin/borrow",
+            method = RequestMethod.GET)
+    public String showBorrow(
+            Model model,
+            HttpServletRequest request){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        List<BorrowDetail>list=bookService.getBorList();
+        model.addAttribute("list",list);
+        return "admin_borrow";
     }
 }

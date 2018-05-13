@@ -2,19 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>预约情况</title>
+    <title>借阅情况</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/lib/css/homepage.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div th:include="../static/common/headbar::headbar"></div>
-<div th:include="./detail_user::homepage"></div>
+<div th:include="./detail_admin::homepage"></div>
+
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
     <div class="panel-heading">
-        <h3 class="panel-title" style="text-align:center">借阅记录</h3>
+        <h3 class="panel-title" style="text-align:center">借阅情况</h3>
     </div>
     <div class="panel-body">
         <table class="table table-hover" style="text-align:center">
@@ -22,23 +24,24 @@
             <tr>
                 <th>借阅号</th>
                 <th>书名</th>
-                <th>借阅日期</th>
-                <th>截止日期</th>
-                <th>操作</th>
+                <th>借阅者</th>
+                <th>借阅时间</th>
+                <th>过期时间</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="res: ${list}">
                 <td th:text="${res.borrowId}"></td>
                 <td th:text="${res.bname}"></td>
+                <td th:text="${res.userName}"></td>
                 <td th:text="(${res.btime.year}+1900)+'年 '+${res.btime.month}+'月'+${res.btime.day}+'日'"></td>
                 <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
-                <td><a th:href="'/managebooks/'+${res.borrowId}+'/return'"><button type="button" class="btn btn-primary">还书</button></a>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 
 </body>
 </html>

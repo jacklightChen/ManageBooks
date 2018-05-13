@@ -52,5 +52,7 @@ public interface BookMapper {
     //管理员获取所有预约记录 注意返回值需要的是包装起来的书名和预约号还有用户名
     List<ReservationDetail> getResList();
 
+    // TODO: 2018/5/13 czc 管理员查看所有借阅记录 注意borrowdetail加了个用户名 你view改一下
+    List<BorrowDetail> getBorList();
 
 }

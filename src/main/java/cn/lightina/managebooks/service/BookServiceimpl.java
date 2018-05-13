@@ -29,4 +29,5 @@ public interface BookServiceimpl {
 
     List<ReservationDetail> getResList();
 
+    List<BorrowDetail> getBorList();
 }

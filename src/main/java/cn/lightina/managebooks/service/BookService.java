@@ -97,4 +97,9 @@ public class BookService implements BookServiceimpl {
     public List<ReservationDetail> getResList() {
         return bookMapper.getResList();
     }
+
+    @Override
+    public List<BorrowDetail> getBorList(){
+        return bookMapper.getBorList();
+    }
 }
