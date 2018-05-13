@@ -1,33 +1,104 @@
 package cn.lightina.managebooks.service;
 
+import cn.lightina.managebooks.Exception.AddBookListException;
+import cn.lightina.managebooks.Exception.ReservationException;
+import cn.lightina.managebooks.dao.BookMapper;
 import cn.lightina.managebooks.pojo.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface BookServiceimpl {
+@Service
+public class BookServiceimpl implements BookService {
+    @Autowired(required = false)
+    BookMapper bookMapper;
+
     /*user*/
-    List<BookList> getlist();
+    @Override
+    public List<BookList> getlist() {
+        return bookMapper.getList();
+    }
 
-    List<BookList> getlistByQuery(String query);
+    @Override
+    public List<BookList> getlistByQuery(String query) {
+        return bookMapper.getListByQuery(query);
+    }
 
-    List<Book> getlistByuId(int userId);
+    @Override
+    public List<Book> getlistByuId(int userId) {
+        return null;
+    }
 
-    int deleteByBId(int bookId);
+    @Override
+    @Transactional
+    public Reservation processRes(String ISBN, User user) {
+        List<Book> list = bookMapper.getRes(ISBN);
+        if (list == null) {
+            throw new ReservationException("预约失败");
+        }
+        Book book=list.get(0);
+        int state=book.getState();
+        int count=0;
+        if(state==0)
+            count = bookMapper.insertResInfo(book, user);
+        else if(state==2)
+            count = bookMapper.insertResInfoNull(book,user);
+        if (count <= 0) {
+            throw new ReservationException("预约失败");
+        }
+        // TODO: 2018/5/13 czh 预约成功时需要改变对应图书状态
+        if(state==0)bookMapper.changeBookState(book,1);
+        Reservation r = bookMapper.getResId(book, user);
+        return r;
+    }
 
-    Reservation processRes(String ISBN, User user);
+    @Override
+    public int deleteByBId(int bookId) {
+        /*
+         * 先根据uid bookid => borrowid
+         * update borrow enddate
+         * */
+        return 0;
+    }
 
-    List<ReservationDetail> getResById(User user);
+    /**/
 
-    /*admin*/
-    int addBookList(BookList booklist);
+    @Override
+    public int addBookList(BookList bookList) {
+        int count = bookMapper.addBookList(bookList);
+        if (count <= 0) throw new AddBookListException("添加失败");
+        return count;
+    }
 
-    Book insertBorrow(BookList booklist, int userId);
+    @Override
+    public Book insertBorrow(BookList booklist, int userId) {
+        return null;
+    }
 
-    List<Reservation> getResInfo();
+    @Override
+    public List<ReservationDetail> getResById(User user) {
+        return bookMapper.getResById(user);
+    }
 
-    List<BorrowDetail> getBorInfo(User user);
+    @Override
+    public List<Reservation> getResInfo() {
+        return null;
+    }
 
-    List<ReservationDetail> getResList();
+    @Override
+    public List<BorrowDetail> getBorInfo(User user) {
+        return bookMapper.getBorById(user);
+    }
 
-    List<BorrowDetail> getBorList();
+    @Override
+    public List<ReservationDetail> getResList() {
+        return bookMapper.getResList();
+    }
+
+    @Override
+    public List<BorrowDetail> getBorList(){
+        return bookMapper.getBorList();
+    }
 }

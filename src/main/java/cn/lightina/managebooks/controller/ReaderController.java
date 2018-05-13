@@ -1,7 +1,7 @@
 package cn.lightina.managebooks.controller;
 
 import cn.lightina.managebooks.pojo.*;
-import cn.lightina.managebooks.service.BookService;
+import cn.lightina.managebooks.service.BookServiceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +16,14 @@ import java.util.List;
 @RequestMapping("/managebooks")
 public class ReaderController {
     @Autowired
-    BookService bookService;
+    BookServiceimpl bookServiceimpl;
 
     @RequestMapping(value="/booklist",
             method = RequestMethod.GET)
     public String listBookList(Model model,HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<BookList>list=bookService.getlist();
+        List<BookList>list= bookServiceimpl.getlist();
         model.addAttribute("list",list);
         return "user_booklist";
     }
@@ -34,7 +34,7 @@ public class ReaderController {
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         String bname=request.getParameter("bname");
-        List<BookList>list=bookService.getlistByQuery(bname);
+        List<BookList>list= bookServiceimpl.getlistByQuery(bname);
         model.addAttribute("list",list);
         return "user_booklist";
     }
@@ -54,7 +54,7 @@ public class ReaderController {
         Reservation r=null;
         try {
             pw=response.getWriter();
-            r = bookService.processRes(ISBN,user);
+            r = bookServiceimpl.processRes(ISBN,user);
             rr=new ReservationResult<>(true,r);
         }catch (Exception e){
             rr=new ReservationResult<>(false,"预约失败");
@@ -64,7 +64,7 @@ public class ReaderController {
         }else{
             pw.print("<script>alert('预约失败,请重新预约!');window.location.href='/managebooks/booklist';</script>");
         }
-        List<BookList>list=bookService.getlist();
+        List<BookList>list= bookServiceimpl.getlist();
         model.addAttribute("list",list);
         return "user_booklist";
     }
@@ -76,7 +76,7 @@ public class ReaderController {
                                   HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<ReservationDetail>list=bookService.getResById(user);
+        List<ReservationDetail>list= bookServiceimpl.getResById(user);
         model.addAttribute("list",list);
         return "user_reservation";
     }
@@ -87,7 +87,7 @@ public class ReaderController {
                                   HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<BorrowDetail>list=bookService.getBorInfo(user);
+        List<BorrowDetail>list= bookServiceimpl.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
     }
@@ -102,7 +102,7 @@ public class ReaderController {
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         // TODO: 2018/5/13 czc  book_id对应的书归还入库——修改book.state为1——在reservation表中设置对应记录的deadline 您的触发器接口
-        List<BorrowDetail>list=bookService.getBorInfo(user);
+        List<BorrowDetail>list= bookServiceimpl.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
     }
@@ -113,7 +113,7 @@ public class ReaderController {
     public String showBook(Model model,HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<BookList>list=bookService.getlist();
+        List<BookList>list= bookServiceimpl.getlist();
         model.addAttribute("list",list);
         return "admin_addbook";
     }
@@ -128,7 +128,7 @@ public class ReaderController {
         User user=(User)request.getSession().getAttribute("user");
         AddResult ar;
         try {
-            bookService.addBookList(bookList);
+            bookServiceimpl.addBookList(bookList);
             ar=new AddResult(true);
         }catch (Exception e){
             ar=new AddResult(false);
@@ -143,7 +143,7 @@ public class ReaderController {
             HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<ReservationDetail>list=bookService.getResList();
+        List<ReservationDetail>list= bookServiceimpl.getResList();
         model.addAttribute("list",list);
         return "admin_processreservation";
     }
@@ -160,7 +160,7 @@ public class ReaderController {
         model.addAttribute("user",user);
         // TODO: 2018/5/13 czc 插入borrow 触发器???
 
-        List<ReservationDetail>list=bookService.getResList();
+        List<ReservationDetail>list= bookServiceimpl.getResList();
         model.addAttribute("list",list);
         return "admin_processreservation";
     }
@@ -174,7 +174,7 @@ public class ReaderController {
             HttpServletRequest request){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        List<BorrowDetail>list=bookService.getBorList();
+        List<BorrowDetail>list= bookServiceimpl.getBorList();
         model.addAttribute("list",list);
         return "admin_borrow";
     }
