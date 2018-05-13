@@ -39,8 +39,6 @@ public class LoginController {
             return "detail_admin";
         }else{
             user = new User(userName,password);
-            user.setUserName("hhhh");
-            user.setUserId(26);
             User u=userService.checkUser(user);
             if(u==null) return "login";
             model.addAttribute("user", user);
