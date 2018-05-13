@@ -10,6 +10,14 @@ public class ReservationDetail {
     private String userName;
     private int state; //0:处理中 1:预约成功 2:预约失败
 
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
     public int getState() {
         return state;
     }

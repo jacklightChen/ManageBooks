@@ -77,9 +77,6 @@ public class ReaderController {
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         List<ReservationDetail>list=bookService.getResById(user);
-        /*for(ReservationDetail rd:list){
-            int bookId=
-        }*/
         model.addAttribute("list",list);
         return "user_reservation";
     }

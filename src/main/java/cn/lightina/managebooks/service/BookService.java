@@ -79,7 +79,11 @@ public class BookService implements BookServiceimpl {
 
     @Override
     public List<ReservationDetail> getResById(User user) {
-        return bookMapper.getResById(user);
+        List<ReservationDetail>list=bookMapper.getResById(user);
+        for(ReservationDetail rd:list){
+            int bookId=rd.getBookId();
+        }
+        return list;
     }
 
     @Override
