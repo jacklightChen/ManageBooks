@@ -7,7 +7,7 @@ spring:
     mode: HTML5
   datasource:
         name: test
-        url: jdbc:mysql://115.159.112.233:3306/library?useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://115.159.112.233:3306/library?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
         username: root
         password: qweasdzxc18czc
         # 使用druid数据源
