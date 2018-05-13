@@ -9,7 +9,7 @@
     </select>
 
     <select id="checkManager" resultType="User">
-        select manager_id as user_id, pass_wd, mname as user_name from manager where manager_id=#{user.userName} and pass_wd=#{user.passWd};
+        select manager_id as user_id, pass_wd, mname as user_name from manager where mname=#{user.userName} and pass_wd=#{user.passWd};
     </select>
 
 </mapper>
