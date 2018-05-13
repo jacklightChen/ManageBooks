@@ -26,21 +26,21 @@ public class LoginController {
             method = RequestMethod.GET)
     public String detail(Model model,
                          HttpServletRequest request) {
-        String userName=request.getParameter("username");
-        String password=request.getParameter("password");
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
         User user;
-        if(userName==null)return "login";
-        if(userName.contains("admin_")){
-            user = new User(userName,password);
-            User u=userService.checkManager(user);
-            if(u==null) return "login";
+        if (userName == null) return "login";
+        if (userName.contains("admin_")) {
+            user = new User(userName, password);
+            User u = userService.checkManager(user);
+            if (u == null) return "login";
             model.addAttribute("user", u);
             request.getSession().setAttribute("user", u);
             return "detail_admin";
-        }else{
-            user = new User(userName,password);
-            User u=userService.checkUser(user);
-            if(u==null) return "login";
+        } else {
+            user = new User(userName, password);
+            User u = userService.checkUser(user);
+            if (u == null) return "login";
             model.addAttribute("user", u);
             request.getSession().setAttribute("user", u);
             return "detail_user";

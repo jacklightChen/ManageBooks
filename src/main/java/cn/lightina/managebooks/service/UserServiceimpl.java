@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceimpl implements UserService{
+public class UserServiceimpl implements UserService {
     @Autowired(required = false)
     UserMapper userMapper;
 

@@ -20,9 +20,9 @@ public interface BookMapper {
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
     List<ReservationDetail> getResById(@Param("user") User user);
 
-    // TODO: 2018/5/13 czc
+    // TODO: 2018/5/13 czh:测试
     // 用户还书
-    void returnBookById (@Param("borrowId") Integer borrowId);
+    void returnBookById(@Param("borrowId") Integer borrowId);
 
     // 测试成功
     // List<BorrowDetail> getBorById(@Param("user")User user);
@@ -33,7 +33,7 @@ public interface BookMapper {
     // 先不管
     List<Book> getListById(@Param("user") User user);
 
-    int processRes(@Param("isbn") String ISBN,@Param("user") User user);
+    int processRes(@Param("isbn") String ISBN, @Param("user") User user);
 
     /*admin*/
     // TODO: 2018/5/13 czc 管理员添加新的booklist

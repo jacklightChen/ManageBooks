@@ -34,10 +34,16 @@
                 <td th:text="${res.reservationId}"></td>
                 <td th:text="${res.bname}"></td>
                 <td th:text="${res.userName}"></td>
-                <td th:if="${res.deadline!=null}" th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
+                <td th:if="${res.deadline!=null}"
+                    th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
                 <td th:if="${res.deadline==null}" th:text="待更新"></td>
-                <td th:if="${res.deadline!=null}"><a th:href="'/managebooks/admin/'+${res.reservationId}+'/reservation'"><button type="button" class="btn btn-success">同意申请</button></a></td>
-                <td th:if="${res.deadline==null}"><button type="button" class="btn btn-danger disabled">该书未在库</button></a></td>
+                <td th:if="${res.deadline!=null}"><a
+                        th:href="'/managebooks/admin/'+${res.reservationId}+'/reservation'">
+                    <button type="button" class="btn btn-success">同意申请</button>
+                </a></td>
+                <td th:if="${res.deadline==null}">
+                    <button type="button" class="btn btn-danger disabled">该书未在库</button>
+                    </a></td>
 
             </tr>
             </tbody>

@@ -44,7 +44,7 @@
     <!--</select>-->
 
     <!--<insert id="addBookList" parameterType="BookList">-->
-        <!---->
+    <!---->
     <!--</insert>-->
 
     <select id="getResList" resultType="ReservationDetail">

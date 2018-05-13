@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class LoginControllerTest {
@@ -17,9 +18,9 @@ public class LoginControllerTest {
 
     @Test
     public void login() {
-        User u=new User("admin_czh","123456");
-        User user=userService.checkManager(u);
-        if(user==null)
-        System.out.println(13);
+        User u = new User("admin_czh", "123456");
+        User user = userService.checkManager(u);
+        if (user == null)
+            System.out.println(13);
     }
 }

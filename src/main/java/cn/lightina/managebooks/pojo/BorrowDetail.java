@@ -6,6 +6,9 @@ public class BorrowDetail {
     private int borrowId;
     private String bname;
     private String userName;
+    private Date btime;
+    private Date deadline;
+    private Date rtime;
 
     public String getUserName() {
         return userName;
@@ -14,10 +17,6 @@ public class BorrowDetail {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-    private Date btime;
-    private Date deadline;
-    private Date rtime;
 
     public int getBorrowId() {
         return borrowId;

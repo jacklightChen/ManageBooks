@@ -6,7 +6,6 @@ import cn.lightina.managebooks.dao.BookMapper;
 import cn.lightina.managebooks.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,8 +32,8 @@ public class BookServiceimpl implements BookService {
 
     @Override
     public void processRes(String ISBN, User user) {
-        int count=bookMapper.processRes(ISBN,user);
-        if(count==0)throw new ReservationException("预约失败");
+        int count = bookMapper.processRes(ISBN, user);
+        if (count == 0) throw new ReservationException("预约失败");
     }
 
     @Override
@@ -86,7 +85,7 @@ public class BookServiceimpl implements BookService {
     }
 
     @Override
-    public List<BorrowDetail> getBorList(){
+    public List<BorrowDetail> getBorList() {
         return bookMapper.getBorList();
     }
 }

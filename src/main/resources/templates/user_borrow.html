@@ -33,7 +33,9 @@
                 <td th:text="${res.bname}"></td>
                 <td th:text="(${res.btime.year}+1900)+'年 '+${res.btime.month}+'月'+${res.btime.day}+'日'"></td>
                 <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
-                <td><a th:href="'/managebooks/'+${res.borrowId}+'/return'"><button type="button" class="btn btn-primary">还书</button></a>
+                <td><a th:href="'/managebooks/'+${res.borrowId}+'/return'">
+                    <button type="button" class="btn btn-primary">还书</button>
+                </a>
             </tr>
             </tbody>
         </table>
