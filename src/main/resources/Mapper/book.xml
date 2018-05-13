@@ -31,7 +31,7 @@
     </select>
 
     <select id="getResById" resultType="ReservationDetail">
-        select reservation_id, bname, deadline, user_name from reservation_detail where user_id = #{user.userId};
+        select reservation_id, bname, deadline, user_name, book_id from reservation_detail where user_id = #{user.userId};
     </select>
 
     <select id="getBorById" resultType="BorrowDetail" parameterType="User">
