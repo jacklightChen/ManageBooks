@@ -19,26 +19,33 @@ public interface BookMapper {
     /*获取预约号*/
     Reservation getResId(@Param("book") Book book, @Param("user") User user);
 
-    //    todo:czh: 写完了应该没有偏差,测试一下
+    // TODO: 2018/5/13 czc
+    // 现修改需求 我需要显示预约的状态 即读者能看到预约是待处理还是已处理还是失败 返回值包装类多出一个属性state
+    // 测试成功
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
     List<ReservationDetail> getResById(@Param("user") User user);
 
-//    todo:czh: getBorById写完了应该没有偏差,测试一下
+
+    // TODO: 2018/5/13 czc
+    // 用户还书
+    int returnBook (@Param("borrowId")Integer borrowId);
+
+    // 测试成功
     //List<BorrowDetail> getBorById(@Param("user")User user);
     // 根据userid获取已借阅记录
     List<BorrowDetail> getBorById(@Param("user") User user);
 
 
-//    todo:czh:没注释不知道写啥
+    // 先不管
     List<Book> getListById(@Param("user") User user);
 
     /*admin*/
-    // TODO: 2018/5/12
-//    todo:czh: 没注释不知道写啥
+    // TODO: 2018/5/13 czc 管理员添加新的booklist
     int addBookList(@Param("booklist") BookList booklist);
 
-    //    todo:czh: 写完了应该没有偏差,测试一下
+    // 测试成功
     //管理员获取所有预约记录 注意返回值需要的是包装起来的书名和预约号还有用户名
     List<ReservationDetail> getResList();
+
 
 }

@@ -49,7 +49,7 @@ public class ReaderController {
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         response.setContentType("text/html;charset=utf8");
-        ReservationResult<Reservation> rr=null;
+        ReservationResult<Reservation> rr;
         PrintWriter pw=null;
         Reservation r=null;
         try {
@@ -123,8 +123,7 @@ public class ReaderController {
 
     // TODO: 2018/5/12 czh process res
     @RequestMapping(value = "/admin/reservation",
-            method = RequestMethod.GET,
-            produces = {"application/json;charset=UTF-8"})
+            method = RequestMethod.GET)
     public String processRes(
             Model model,
             HttpServletRequest request){
