@@ -101,8 +101,6 @@ public class ReaderController {
             @PathVariable(value = "borrowId")Integer borrowId){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-
-
         List<BorrowDetail>list=bookService.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
@@ -137,8 +135,6 @@ public class ReaderController {
         return ar;
     }
 
-
-    // TODO: 2018/5/12 czh process res
     @RequestMapping(value = "/admin/reservation",
             method = RequestMethod.GET)
     public String processRes(
@@ -151,4 +147,20 @@ public class ReaderController {
         return "admin_processreservation";
     }
 
+    // TODO: 2018/5/13 处理预约->插入borrow
+    @RequestMapping(
+            value = "/admin/{reservationId}/borrow",
+            method = RequestMethod.GET)
+    public String addBorrow(
+            Model model,
+            HttpServletRequest request,
+            @PathVariable(value = "reservationId") Integer reservationId){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+        // TODO: 2018/5/13 czc 插入borrow 触发器???
+
+        List<ReservationDetail>list=bookService.getResList();
+        model.addAttribute("list",list);
+        return "admin_processreservation";
+    }
 }
