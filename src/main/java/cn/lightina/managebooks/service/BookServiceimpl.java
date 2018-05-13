@@ -32,26 +32,9 @@ public class BookServiceimpl implements BookService {
     }
 
     @Override
-    @Transactional
-    public Reservation processRes(String ISBN, User user) {
-        List<Book> list = bookMapper.getRes(ISBN);
-        if (list == null) {
-            throw new ReservationException("预约失败");
-        }
-        Book book=list.get(0);
-        int state=book.getState();
-        int count=0;
-        if(state==0)
-            count = bookMapper.insertResInfo(book, user);
-        else if(state==2)
-            count = bookMapper.insertResInfoNull(book,user);
-        if (count <= 0) {
-            throw new ReservationException("预约失败");
-        }
-        // TODO: 2018/5/13 czh 预约成功时需要改变对应图书状态
-        if(state==0)bookMapper.changeBookState(book,1);
-        Reservation r = bookMapper.getResId(book, user);
-        return r;
+    public void processRes(String ISBN, User user) {
+        int count=bookMapper.processRes(ISBN,user);
+        if(count==0)throw new ReservationException("预约失败");
     }
 
     @Override

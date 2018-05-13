@@ -14,7 +14,7 @@ public interface BookService {
 
     int deleteByBId(int bookId);
 
-    Reservation processRes(String ISBN, User user);
+    void processRes(String ISBN, User user);
 
     List<ReservationDetail> getResById(User user);
 

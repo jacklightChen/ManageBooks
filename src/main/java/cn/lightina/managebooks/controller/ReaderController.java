@@ -54,7 +54,7 @@ public class ReaderController {
         Reservation r=null;
         try {
             pw=response.getWriter();
-            r = bookServiceimpl.processRes(ISBN,user);
+            bookServiceimpl.processRes(ISBN,user);
             rr=new ReservationResult<>(true,r);
         }catch (Exception e){
             rr=new ReservationResult<>(false,"预约失败");

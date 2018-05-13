@@ -50,4 +50,13 @@
     <select id="getResList" resultType="ReservationDetail">
         select reservation_id, bname, deadline, user_name from reservation_detail
     </select>
+
+    <select id="processRes" statementType="CALLABLE" useCache="false" resultType="Integer">
+        {call make_reservation(
+        #{ISBN, mode=IN},
+        #{user.userId, mode=IN},
+        #{status, mode=OUT, jdbcType=Integer},
+        )}
+    </select>
+
 </mapper>
