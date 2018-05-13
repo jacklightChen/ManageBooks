@@ -22,7 +22,7 @@ public interface BookMapper {
 
     // TODO: 2018/5/13 czc
     // 用户还书
-    int returnBookById (@Param("borrowId") Integer borrowId);
+    void returnBookById (@Param("borrowId") Integer borrowId);
 
     // 测试成功
     // List<BorrowDetail> getBorById(@Param("user")User user);

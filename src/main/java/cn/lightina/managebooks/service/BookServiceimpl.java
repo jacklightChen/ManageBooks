@@ -81,6 +81,11 @@ public class BookServiceimpl implements BookService {
     }
 
     @Override
+    public void returnBookById(int borrowId) {
+        bookMapper.returnBookById(borrowId);
+    }
+
+    @Override
     public List<BorrowDetail> getBorList(){
         return bookMapper.getBorList();
     }

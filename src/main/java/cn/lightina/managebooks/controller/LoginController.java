@@ -33,7 +33,6 @@ public class LoginController {
         if(userName.contains("admin_")){
             user = new User(userName,password);
             User u=userService.checkManager(user);
-            System.out.println(u.getUserId());
             if(u==null) return "login";
             model.addAttribute("user", u);
             request.getSession().setAttribute("user", u);

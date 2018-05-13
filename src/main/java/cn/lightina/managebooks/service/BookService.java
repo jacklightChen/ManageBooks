@@ -18,6 +18,8 @@ public interface BookService {
 
     List<ReservationDetail> getResById(User user);
 
+    void returnBookById(int borrowId);
+
     /*admin*/
     int addBookList(BookList booklist);
 

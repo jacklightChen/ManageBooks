@@ -102,7 +102,7 @@ public class ReaderController {
             @PathVariable(value = "borrowId")Integer borrowId){
         User user=(User)request.getSession().getAttribute("user");
         model.addAttribute("user",user);
-        books
+        bookService.returnBookById(borrowId);
         List<BorrowDetail>list= bookService.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";
