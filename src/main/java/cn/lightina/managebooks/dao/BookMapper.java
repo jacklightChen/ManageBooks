@@ -28,11 +28,14 @@ public interface BookMapper {
     Reservation getResId(@Param("book") Book book, @Param("user") User user);
 
     // TODO: 2018/5/13 czc
-    // 现修改需求 我需要显示预约的状态 即读者能看到预约是待处理还是已处理还是失败 返回值包装类多出一个属性state
+    // 现修改需求 增加bookId 看包装类属性我改了 state我后台来处理
     // 测试成功
     // 根据userid获取预约记录 注意返回值需要的是包装起来的书名和预约号
     List<ReservationDetail> getResById(@Param("user") User user);
 
+    // TODO: 2018/5/13
+    // 查询是否某个用户现在拥有某本书 返回影响行数 注意现在 nowdate<enddate
+    int checkBookBelongsToUser(@Param("book") Book book,@Param("user") User user);
 
     // TODO: 2018/5/13 czc
     // 用户还书
