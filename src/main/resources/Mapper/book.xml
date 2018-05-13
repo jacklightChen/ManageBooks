@@ -43,9 +43,10 @@
 
     <!--</select>-->
 
-    <!--<insert id="addBookList" parameterType="BookList">-->
-    <!---->
-    <!--</insert>-->
+    <insert id="addBookList">
+        call library.new_book(#{boolist.ISBN}, #{booklist.bname}, #{booklist.publisher}, #{booklist.writer},
+                              #{booklist.ptime}, #{booklist.number}, #{booklist.operator}, #{location}, #{state})
+    </insert>
 
     <select id="getResList" resultType="ReservationDetail">
         select reservation_id, bname, deadline, user_name from reservation_detail
@@ -59,6 +60,10 @@
 
     <select id="returnBookById">
         call library.return_book(#{borrowId});
+    </select>
+
+    <select id="getBorList" resultType="BorrowDetail">
+        select borrow_id, bname, btime, deadline, rtime, user_name from borrow_detail
     </select>
 
 </mapper>

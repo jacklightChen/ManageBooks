@@ -36,14 +36,14 @@ public interface BookMapper {
     int processRes(@Param("isbn") String ISBN, @Param("user") User user);
 
     /*admin*/
-    // TODO: 2018/5/13 czc 管理员添加新的booklist
-    int addBookList(@Param("booklist") BookList booklist);
+    // TODO: 2018/5/14 czh:测试
+    void addBookList(@Param("booklist") BookList booklist, @Param("location") String location, @Param("state") Integer state);
 
     // 测试成功
     //管理员获取所有预约记录 注意返回值需要的是包装起来的书名和预约号还有用户名
     List<ReservationDetail> getResList();
 
-    // TODO: 2018/5/13 czc 管理员查看所有借阅记录 注意borrowdetail加了个用户名 你view改一下
+    // TODO: 2018/5/14 czh:view已改，测试
     List<BorrowDetail> getBorList();
 
 }
