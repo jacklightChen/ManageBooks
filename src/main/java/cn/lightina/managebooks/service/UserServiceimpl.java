@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceimpl implements UserService{
-    @Autowired
+    @Autowired(required = false)
     UserMapper userMapper;
 
     @Override
@@ -17,6 +17,6 @@ public class UserServiceimpl implements UserService{
 
     @Override
     public User checkManager(User user) {
-        return null;
+        return userMapper.checkManager(user);
     }
 }
