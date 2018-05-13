@@ -22,7 +22,7 @@ public class LoginController {
             method = RequestMethod.GET)
     public String detail(Model model, HttpServletRequest request) {
         User user = new User();
-        user.setUserName("hhhh");
+        user.setUserName("hhh");
         user.setUserId(26);
         model.addAttribute("user", user);
         request.getSession().setAttribute("user", user);
