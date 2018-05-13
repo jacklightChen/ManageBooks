@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -82,6 +83,9 @@ public class BookService implements BookServiceimpl {
         List<ReservationDetail>list=bookMapper.getResById(user);
         for(ReservationDetail rd:list){
             int bookId=rd.getBookId();
+
+            Date deadline=rd.getDeadline();
+
         }
         return list;
     }

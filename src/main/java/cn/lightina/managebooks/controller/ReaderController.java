@@ -103,8 +103,6 @@ public class ReaderController {
         model.addAttribute("user",user);
 
 
-
-
         List<BorrowDetail>list=bookService.getBorInfo(user);
         model.addAttribute("list",list);
         return "user_borrow";

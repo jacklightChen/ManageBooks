@@ -8,7 +8,6 @@ public class ReservationDetail {
     private int bookId;
     private Date deadline;
     private String userName;
-    private int state; //0:处理中 1:预约成功 2:预约失败
 
     public int getBookId() {
         return bookId;
@@ -16,14 +15,6 @@ public class ReservationDetail {
 
     public void setBookId(int bookId) {
         this.bookId = bookId;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
     }
 
     public String getUserName() {
