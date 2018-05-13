@@ -38,12 +38,19 @@ public class BookService implements BookServiceimpl {
         if (list == null) {
             throw new ReservationException("预约失败");
         }
-        int count = bookMapper.insertResInfo(list.get(0), user);
+        Book book=list.get(0);
+        int state=book.getState();
+        int count=0;
+        if(state==0)
+            count = bookMapper.insertResInfo(book, user);
+        else if(state==2)
+            count = bookMapper.insertResInfoNull(book,user);
         if (count <= 0) {
             throw new ReservationException("预约失败");
         }
         // TODO: 2018/5/13 czh 预约成功时需要改变对应图书状态
-        Reservation r = bookMapper.getResId(list.get(0), user);
+        if(state==0)bookMapper.changeBookState(book,1);
+        Reservation r = bookMapper.getResId(book, user);
         return r;
     }
 

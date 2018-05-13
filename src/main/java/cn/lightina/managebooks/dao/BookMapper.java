@@ -13,12 +13,16 @@ public interface BookMapper {
     /*得到能被预约的书*/
     List<Book> getRes(@Param("isbn") String ISBN);
 
-    /*插入预约记录*/
+    /*插入预约记录 这里是状态0*/
     int insertResInfo(@Param("book") Book book, @Param("user") User user);
 
     // TODO: 2018/5/13 czc
+    /*插入预约记录 这里是状态2 即设deadline为null*/
+    int insertResInfoNull(@Param("book") Book book, @Param("user") User user);
+
+    // TODO: 2018/5/13 czc
     /*插入预约时需要改变对应图书的状态*/
-    int updateBookState(@Param("book") Book book,@Param("state") Integer state);
+    int changeBookState(@Param("book") Book book,@Param("state") Integer state);
 
     /*获取预约号*/
     Reservation getResId(@Param("book") Book book, @Param("user") User user);
