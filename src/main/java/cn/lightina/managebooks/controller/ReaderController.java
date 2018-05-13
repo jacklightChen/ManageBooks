@@ -92,6 +92,25 @@ public class ReaderController {
         return "user_borrow";
     }
 
+    // TODO: 2018/5/13 czh 还书
+    @RequestMapping(value = "{borrowId}/return",
+            method = RequestMethod.GET)
+    public String returnBookById(
+            Model model,
+            HttpServletRequest request,
+            @PathVariable(value = "borrowId")Integer borrowId){
+        User user=(User)request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
+
+
+
+
+        List<BorrowDetail>list=bookService.getBorInfo(user);
+        model.addAttribute("list",list);
+        return "user_borrow";
+    }
+
+    /*admin*/
     @RequestMapping(value="/admin/books",
             method = RequestMethod.GET)
     public String showBook(Model model,HttpServletRequest request){

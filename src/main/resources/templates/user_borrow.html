@@ -24,6 +24,7 @@
                 <th>书名</th>
                 <th>借阅日期</th>
                 <th>截止日期</th>
+                <th>还书</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +33,7 @@
                 <td th:text="${res.bname}"></td>
                 <td th:text="(${res.btime.year}+1900)+'年 '+${res.btime.month}+'月'+${res.btime.day}+'日'"></td>
                 <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
-                <!--<td><a th:href="'/managebooks/'+${booklist.ISBN}+'/booklist'"><button type="button" class="btn btn-info">预约</button></a></td>-->
+                <td><a th:href="'/managebooks/'+${res.borrowId}+'/return'"><button type="button" class="btn btn-success">还书</button></a>
             </tr>
             </tbody>
         </table>

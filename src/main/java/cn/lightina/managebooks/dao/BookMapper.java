@@ -16,6 +16,10 @@ public interface BookMapper {
     /*插入预约记录*/
     int insertResInfo(@Param("book") Book book, @Param("user") User user);
 
+    // TODO: 2018/5/13 czc
+    /*插入预约时需要改变对应图书的状态*/
+    int updateBookState(@Param("book") Book book,@Param("state") Integer state);
+
     /*获取预约号*/
     Reservation getResId(@Param("book") Book book, @Param("user") User user);
 
@@ -28,10 +32,10 @@ public interface BookMapper {
 
     // TODO: 2018/5/13 czc
     // 用户还书
-    int returnBook (@Param("borrowId")Integer borrowId);
+    int returnBookById (@Param("borrowId") Integer borrowId);
 
     // 测试成功
-    //List<BorrowDetail> getBorById(@Param("user")User user);
+    // List<BorrowDetail> getBorById(@Param("user")User user);
     // 根据userid获取已借阅记录
     List<BorrowDetail> getBorById(@Param("user") User user);
 

@@ -6,6 +6,7 @@ import cn.lightina.managebooks.dao.BookMapper;
 import cn.lightina.managebooks.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class BookService implements BookServiceimpl {
     }
 
     @Override
+    @Transactional
     public Reservation processRes(String ISBN, User user) {
         List<Book> list = bookMapper.getRes(ISBN);
         if (list == null) {
@@ -40,10 +42,8 @@ public class BookService implements BookServiceimpl {
         if (count <= 0) {
             throw new ReservationException("预约失败");
         }
+        // TODO: 2018/5/13 czh 预约成功时需要改变对应图书状态
         Reservation r = bookMapper.getResId(list.get(0), user);
-//        todo:czh: 单步调试没问题，并不是0
-        System.out.println(r.getReservationId());
-        System.out.println(r.getBookId());
         return r;
     }
 
@@ -51,7 +51,7 @@ public class BookService implements BookServiceimpl {
     public int deleteByBId(int bookId) {
         /*
          * 先根据uid bookid => borrowid
-         * upadte borrow enddate
+         * update borrow enddate
          * */
         return 0;
     }
