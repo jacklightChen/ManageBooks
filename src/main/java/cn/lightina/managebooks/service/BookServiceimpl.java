@@ -53,8 +53,8 @@ public class BookServiceimpl implements BookService {
     }
 
     @Override
-    public int insertBorrow(int reservationId) {
-        return bookMapper.insertBorrow(reservationId);
+    public void insertBorrow(int reservationId,int operator) {
+        bookMapper.insertBorrow(reservationId,operator);
     }
 
     @Override

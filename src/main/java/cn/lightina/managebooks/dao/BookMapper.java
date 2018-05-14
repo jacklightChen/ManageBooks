@@ -47,6 +47,6 @@ public interface BookMapper {
     List<BorrowDetail> getBorList();
 
     // TODO: 2018/5/14
-    int insertBorrow(int reservationId);
+    void insertBorrow(int reservationId,int operator);
 
 }

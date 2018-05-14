@@ -23,7 +23,7 @@ public interface BookService {
     /*admin*/
     void addBookList(BookList booklist);
 
-    int insertBorrow(int reservationId);
+    void insertBorrow(int reservationId,int operator);
 
     List<Reservation> getResInfo();
 
