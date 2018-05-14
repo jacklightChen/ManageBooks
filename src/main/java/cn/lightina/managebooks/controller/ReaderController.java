@@ -18,8 +18,7 @@ public class ReaderController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value = "/booklist",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/booklist")
     public String listBookList(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("user", user);
@@ -28,8 +27,7 @@ public class ReaderController {
         return "user_booklist";
     }
 
-    @RequestMapping(value = "/query",
-            method = RequestMethod.POST)
+    @PostMapping(value = "/query")
     public String listBookListById(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("user", user);
@@ -39,8 +37,7 @@ public class ReaderController {
         return "user_booklist";
     }
 
-    @RequestMapping(value = "/{ISBN}/booklist",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/{ISBN}/booklist")
     public String listBookListById(
             Model model,
             HttpServletRequest request,
@@ -70,8 +67,7 @@ public class ReaderController {
     }
 
     // TODO: 2018/5/12 czh
-    @RequestMapping(value = "/reservation",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/reservation")
     public String listResListById(Model model,
                                   HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
@@ -81,8 +77,7 @@ public class ReaderController {
         return "user_reservation";
     }
 
-    @RequestMapping(value = "/borrow",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/borrow")
     public String listBorListById(Model model,
                                   HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
@@ -93,8 +88,7 @@ public class ReaderController {
     }
 
     // TODO: 2018/5/13 czh 还书
-    @RequestMapping(value = "{borrowId}/return",
-            method = RequestMethod.GET)
+    @GetMapping(value = "{borrowId}/return")
     public String returnBookById(
             Model model,
             HttpServletRequest request,
@@ -108,8 +102,7 @@ public class ReaderController {
     }
 
     /*admin*/
-    @RequestMapping(value = "/admin/books",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/admin/books")
     public String showBook(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("user", user);
@@ -137,8 +130,7 @@ public class ReaderController {
         return ar;
     }
 
-    @RequestMapping(value = "/admin/reservation",
-            method = RequestMethod.GET)
+    @GetMapping(value = "/admin/reservation")
     public String processRes(
             Model model,
             HttpServletRequest request) {
@@ -149,9 +141,8 @@ public class ReaderController {
         return "admin_processreservation";
     }
 
-    @RequestMapping(
-            value = "/admin/{reservationId}/borrow",
-            method = RequestMethod.GET)
+    @GetMapping(
+            value = "/admin/{reservationId}/borrow")
     public String addBorrow(
             Model model,
             HttpServletRequest request,
@@ -165,9 +156,8 @@ public class ReaderController {
     }
 
     /*查看借阅情况*/
-    @RequestMapping(
-            value = "/admin/borrow",
-            method = RequestMethod.GET)
+    @GetMapping(
+            value = "/admin/borrow")
     public String showBorrow(
             Model model,
             HttpServletRequest request) {
@@ -179,9 +169,8 @@ public class ReaderController {
     }
 
     /*查看借阅情况*/
-    @RequestMapping(
-            value = "/admin/delete",
-            method = RequestMethod.GET)
+    @GetMapping(
+            value = "/admin/delete")
     @ResponseBody
     public ProcessResult delBookList(
             Model model,
