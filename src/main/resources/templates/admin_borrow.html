@@ -34,8 +34,8 @@
                 <td th:text="${res.borrowId}"></td>
                 <td th:text="${res.bname}"></td>
                 <td th:text="${res.userName}"></td>
-                <td th:text="(${res.btime.year}+1900)+'年 '+${res.btime.month}+'月'+${res.btime.day}+'日'"></td>
-                <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
+                <td th:text="${#dates.format(res.btime, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
             </tr>
             </tbody>
         </table>

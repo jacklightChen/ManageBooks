@@ -159,7 +159,7 @@ public class ReaderController {
         User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("user", user);
         // TODO: 2018/5/13 czc 插入borrow 触发器???
-
+        bookService.insertBorrow(reservationId);
         List<ReservationDetail> list = bookService.getResList();
         model.addAttribute("list", list);
         return "admin_processreservation";

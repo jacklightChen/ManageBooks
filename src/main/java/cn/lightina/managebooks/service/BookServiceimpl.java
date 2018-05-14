@@ -48,15 +48,13 @@ public class BookServiceimpl implements BookService {
     /**/
 
     @Override
-    public int addBookList(BookList bookList) {
-        int count = bookMapper.addBookList(bookList);
-        if (count <= 0) throw new AddBookListException("添加失败");
-        return count;
+    public void addBookList(BookList bookList) {
+        bookMapper.addBookList(bookList,"图书流通室",0);
     }
 
     @Override
-    public Book insertBorrow(BookList booklist, int userId) {
-        return null;
+    public int insertBorrow(int reservationId) {
+        return bookMapper.insertBorrow(reservationId);
     }
 
     @Override

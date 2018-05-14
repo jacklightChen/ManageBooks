@@ -21,9 +21,9 @@ public interface BookService {
     void returnBookById(int borrowId);
 
     /*admin*/
-    int addBookList(BookList booklist);
+    void addBookList(BookList booklist);
 
-    Book insertBorrow(BookList booklist, int userId);
+    int insertBorrow(int reservationId);
 
     List<Reservation> getResInfo();
 

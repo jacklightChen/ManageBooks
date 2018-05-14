@@ -46,4 +46,7 @@ public interface BookMapper {
     // TODO: 2018/5/14 czh:view已改，测试
     List<BorrowDetail> getBorList();
 
+    // TODO: 2018/5/14
+    int insertBorrow(int reservationId);
+
 }

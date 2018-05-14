@@ -30,12 +30,9 @@
             <tr th:each="res: ${list}">
                 <td th:text="${res.reservationId}"></td>
                 <td th:text="${res.bname}"></td>
-                <td th:if="${res.deadline!=null}"
-                    th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
+                <td th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
                 <td th:if="${res.deadline==null}" th:text="待更新"></td>
-                <td>
-                    <button type="button" class="btn btn-success disabled">处理中</button>
-                </td>
+                <td><button type="button" class="btn btn-success disabled">处理中</button></td>
             </tr>
             </tbody>
         </table>

@@ -31,11 +31,11 @@
             <tr th:each="res: ${list}">
                 <td th:text="${res.borrowId}"></td>
                 <td th:text="${res.bname}"></td>
-                <td th:text="(${res.btime.year}+1900)+'年 '+${res.btime.month}+'月'+${res.btime.day}+'日'"></td>
-                <td th:text="(${res.deadline.year}+1900)+'年 '+${res.deadline.month}+'月'+${res.deadline.day}+'日'"></td>
-                <td><a th:href="'/managebooks/'+${res.borrowId}+'/return'">
-                    <button type="button" class="btn btn-primary">还书</button>
-                </a>
+                <td th:text="${#dates.format(res.btime, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
+                <td th:if="${res.rtime==null}"><a th:href="'/managebooks/'+${res.borrowId}+'/return'"><button type="button" class="btn btn-primary">还书</button></a></td>
+                <td th:if="${res.rtime!=null}"><button type="button" class="btn btn-warn disabled">已归还</button></td>
+
             </tr>
             </tbody>
         </table>
