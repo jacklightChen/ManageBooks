@@ -1,35 +1,39 @@
 package cn.lightina.managebooks.pojo;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class BookList {
-    private String ISBN;
+    private String isbn;
     private String bname;
     private String publisher;
     private String writer;
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date ptime;
     private int number;
     private int operator;
 
-    public BookList(String ISBN, String bname, String publisher, String writer, Date ptime, int number, int operator) {
-        this.ISBN = ISBN;
-        this.bname = bname;
-        this.publisher = publisher;
-        this.writer = writer;
-        this.ptime = ptime;
-        this.number = number;
-        this.operator = operator;
+    @Override
+    public String toString() {
+        return "BookList{" +
+                "isbn='" + isbn + '\'' +
+                ", bname='" + bname + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", writer='" + writer + '\'' +
+                ", ptime=" + ptime +
+                ", number=" + number +
+                ", operator=" + operator +
+                '}';
     }
 
-    public BookList() {
+    public String getIsbn() {
+        return isbn;
     }
 
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getBname() {

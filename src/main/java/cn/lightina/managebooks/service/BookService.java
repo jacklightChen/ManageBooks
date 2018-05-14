@@ -21,7 +21,7 @@ public interface BookService {
     void returnBookById(int borrowId);
 
     /*admin*/
-    void addBookList(BookList booklist);
+    void addBookList(BookList booklist,int state);
 
     void insertBorrow(int reservationId,int operator);
 

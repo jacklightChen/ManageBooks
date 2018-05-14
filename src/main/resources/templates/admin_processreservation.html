@@ -36,7 +36,7 @@
                 <td th:text="${res.userName}"></td>
                 <td th:if="${res.deadline!=null}" th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
                 <td th:if="${res.deadline==null}" th:text="待更新"></td>
-                <td th:if="${res.deadline!=null}"><a th:href="'/managebooks/admin/'+${res.reservationId}+'/reservation'"><button type="button" class="btn btn-success">同意申请</button></a></td>
+                <td th:if="${res.deadline!=null}"><a th:href="'/managebooks/admin/'+${res.reservationId}+'/borrow'"><button type="button" class="btn btn-success">同意申请</button></a></td>
                 <td th:if="${res.deadline==null}"><button type="button" class="btn btn-danger disabled">该书未在库</button></a></td>
 
             </tr>

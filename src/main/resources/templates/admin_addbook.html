@@ -34,10 +34,10 @@
             <div class="modal-body">
                 <form id="form-login">
                     <div class="form-group has-feedback">
-                        <label for="ad-ISBN">ISBN</label>
+                        <label for="ad-isbn">isbn</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                            <input id="ad-ISBN" class="form-control" placeholder="请输入ISBN" maxlength="13" type="text">
+                            <input id="ad-isbn" class="form-control" placeholder="请输入ISBN" maxlength="13" type="text">
                         </div>
                         <span style="color:red;display: none;" class="tips"></span>
                         <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -48,7 +48,7 @@
                         <label for="ad-bname">书名</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                            <input id="ad-bname" class="form-control" placeholder="请输入书名" maxlength="10">
+                            <input id="ad-bname" class="form-control" placeholder="请输入书名" maxlength="20">
                         </div>
 
                         <span style="color:red;display: none;" class="tips"></span>
@@ -124,7 +124,7 @@
         <table class="table table-hover" style="text-align:center">
             <thead>
             <tr>
-                <th>ISBN</th>
+                <th>isbn</th>
                 <th>书名</th>
                 <th>出版社</th>
                 <th>作者</th>
@@ -133,7 +133,7 @@
             </thead>
             <tbody>
             <tr th:each="booklist: ${list}">
-                <td th:text="${booklist.ISBN}"></td>
+                <td th:text="${booklist.isbn}"></td>
                 <td th:text="${booklist.bname}"></td>
                 <td th:text="${booklist.publisher}"></td>
                 <td th:text="${booklist.writer}"></td>

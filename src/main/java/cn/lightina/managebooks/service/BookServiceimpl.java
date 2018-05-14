@@ -48,8 +48,8 @@ public class BookServiceimpl implements BookService {
     /**/
 
     @Override
-    public void addBookList(BookList bookList) {
-        bookMapper.addBookList(bookList,"图书流通室",0);
+    public void addBookList(BookList bookList,int state) {
+        bookMapper.addBookList(bookList,"图书流通室",state);
     }
 
     @Override

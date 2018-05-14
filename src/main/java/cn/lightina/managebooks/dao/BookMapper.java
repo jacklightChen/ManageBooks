@@ -49,4 +49,7 @@ public interface BookMapper {
     // TODO: 2018/5/14 czh:测试测试
     void insertBorrow(@Param("rid")int reservationId, @Param("op") int operator);
 
+    // TODO: 2018/5/14 把对应的的书全删了 不管了
+    int deleteBookListById(@Param("isbn")String isbn);
+
 }

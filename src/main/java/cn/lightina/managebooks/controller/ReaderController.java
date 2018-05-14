@@ -128,7 +128,8 @@ public class ReaderController {
         User user = (User) request.getSession().getAttribute("user");
         AddResult ar;
         try {
-            bookService.addBookList(bookList);
+            bookList.setOperator(user.getUserId());
+            bookService.addBookList(bookList,0);
             ar = new AddResult(true);
         } catch (Exception e) {
             ar = new AddResult(false);
@@ -148,7 +149,6 @@ public class ReaderController {
         return "admin_processreservation";
     }
 
-    // TODO: 2018/5/13 处理预约->插入borrow
     @RequestMapping(
             value = "/admin/{reservationId}/borrow",
             method = RequestMethod.GET)
@@ -158,7 +158,6 @@ public class ReaderController {
             @PathVariable(value = "reservationId") Integer reservationId) {
         User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("user", user);
-        // TODO: 2018/5/13 czc 插入borrow 触发器???
         bookService.insertBorrow(reservationId,user.getUserId());
         List<ReservationDetail> list = bookService.getResList();
         model.addAttribute("list", list);
