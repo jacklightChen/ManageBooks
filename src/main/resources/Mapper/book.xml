@@ -66,4 +66,8 @@
         select borrow_id, bname, btime, deadline, rtime, user_name from borrow_detail
     </select>
 
+    <insert id="insertBorrow">
+        call library.borrow_from_res(#{rid}, #{op})
+    </insert>
+
 </mapper>
