@@ -1,5 +1,5 @@
 var checkadd = [false, false, false, false];
-
+var checkdel = [false];
 //校验成功函数
 function success(Obj, counter, check, offset) {
     Obj.parent().parent().removeClass('has-error').addClass('has-success');
@@ -109,6 +109,49 @@ $('#btn-add').click(function (e) {
                     alert("添加成功");
                 } else {
                     alert("添加失败");
+                }
+            }
+        });
+    }
+});
+
+//delete
+var regISBN = /^[0-9]{13}$/;
+$('#delete').find('input').eq(0).change(function () {
+    if (regISBN.test($(this).val())) {
+        success($(this), 0, checkdel, 6);
+    } else {
+        fail($(this), 0, 'ISBN只能为13位数字', checkdel, 6);
+    }
+});
+
+$('#btn-delete').click(function (e) {
+    if (!checkadd.every(function (value) {
+            return value == true
+        })) {
+        e.preventDefault();
+        for (key in checkdel) {
+            if (!checkdel[key]) {
+                $('#delete').find('input').eq(key).parent().parent().removeClass('has-success').addClass('has-error')
+            }
+        }
+    } else {
+        var ISBN = document.getElementById("dl-isbn").value;
+        var booklist = {
+            'isbn': ISBN
+        };
+        var JSONdata = JSON.stringify(booklist);
+        $.ajax({
+            type: "post",
+            url: "/managebooks/admin/delete",
+            data: JSONdata,
+            dataType: "json",
+            contentType: "application/json;charset=UTF-8",
+            success: function (result) {
+                if (result['success']) {
+                    alert("删除成功");
+                } else {
+                    alert("删除失败");
                 }
             }
         });

@@ -17,6 +17,9 @@
     <button class="btn btn-success"
             data-toggle="modal" data-target="#add">添加图书
     </button>
+    <button class="btn btn-danger"
+            data-toggle="modal" data-target="#delete">删除图书
+    </button>
 </div>
 
 <!-- 添加图书窗口 -->
@@ -107,6 +110,40 @@
 
                     <div class="text-right">
                         <button class="btn btn-primary" type="button" id="btn-add">添加</button>
+                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">删除图书</h1>
+            </div>
+            <div class="modal-body">
+                <form id="form-delete">
+                    <div class="form-group has-feedback">
+                        <label for="dl-isbn">isbn</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                            <input id="dl-isbn" class="form-control" placeholder="请输入ISBN" maxlength="13" type="text">
+                        </div>
+                        <span style="color:red;display: none;" class="tips"></span>
+                        <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    </div>
+
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="button" id="btn-delete">删除</button>
                         <button class="btn btn-danger" data-dismiss="modal">取消</button>
                     </div>
 

@@ -63,6 +63,11 @@ public class BookServiceimpl implements BookService {
     }
 
     @Override
+    public int deleteBookList(BookList bookList) {
+        return bookMapper.deleteBookListById(bookList.getIsbn());
+    }
+
+    @Override
     public List<Reservation> getResInfo() {
         return null;
     }

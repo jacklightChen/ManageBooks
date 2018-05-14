@@ -123,16 +123,16 @@ public class ReaderController {
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public AddResult addbook(HttpServletRequest request,
-                             @RequestBody BookList bookList) {
+    public ProcessResult addbook(HttpServletRequest request,
+                                 @RequestBody BookList bookList) {
         User user = (User) request.getSession().getAttribute("user");
-        AddResult ar;
+        ProcessResult ar;
         try {
             bookList.setOperator(user.getUserId());
             bookService.addBookList(bookList,0);
-            ar = new AddResult(true);
+            ar = new ProcessResult(true);
         } catch (Exception e) {
-            ar = new AddResult(false);
+            ar = new ProcessResult(false);
         }
         return ar;
     }
@@ -176,5 +176,25 @@ public class ReaderController {
         List<BorrowDetail> list = bookService.getBorList();
         model.addAttribute("list", list);
         return "admin_borrow";
+    }
+
+    /*查看借阅情况*/
+    @RequestMapping(
+            value = "/admin/delete",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public ProcessResult delBookList(
+            Model model,
+            HttpServletRequest request,
+            @RequestBody BookList bookList) {
+        User user = (User) request.getSession().getAttribute("user");
+        ProcessResult pr;
+        try{
+            bookService.deleteBookList(bookList);
+            pr=new ProcessResult(true);
+        }catch (Exception e){
+            pr=new ProcessResult(false);
+        }
+        return pr;
     }
 }

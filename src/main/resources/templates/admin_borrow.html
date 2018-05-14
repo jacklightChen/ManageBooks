@@ -35,7 +35,10 @@
                 <td th:text="${res.bname}"></td>
                 <td th:text="${res.userName}"></td>
                 <td th:text="${#dates.format(res.btime, 'yyyy-MM-dd')}"></td>
-                <td th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
+                <td th:if="${res.rtime==null}" th:text="${#dates.format(res.deadline, 'yyyy-MM-dd')}"></td>
+                <td th:if="${res.rtime!=null}">
+                    <button type="button" class="btn btn-warning disabled" th:text="'已于'+${#dates.format(res.rtime, 'yyyy-MM-dd')}+'归还'"></button>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -1,10 +1,10 @@
 package cn.lightina.managebooks.pojo;
 
 /*添加图书结果的包装类*/
-public class AddResult {
+public class ProcessResult {
     boolean success;
 
-    public AddResult(boolean success) {
+    public ProcessResult(boolean success) {
         this.success = success;
     }
 

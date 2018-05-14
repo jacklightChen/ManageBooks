@@ -32,4 +32,6 @@ public interface BookService {
     List<ReservationDetail> getResList();
 
     List<BorrowDetail> getBorList();
+
+    int deleteBookList(BookList bookList);
 }
