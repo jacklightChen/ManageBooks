@@ -83,6 +83,7 @@
 用户界面:
 ![预约界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro2.png)
 ![预约记录界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro3.png)
+![还书界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro7.png)
 管理员界面:
 ![添加界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro4.png)
 ![处理界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro5.png)
