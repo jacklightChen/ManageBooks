@@ -22,7 +22,21 @@ public class MailServiceimpl implements MailService{
     private String from;
 
     @Override
-    public void processReminder() {
+    public void processResReminder() {
+        List<MailDetail> list= mailMapper.returnReminder();
+        for(MailDetail m:list){
+            String subject="你他娘倒是来图书馆呀";
+            String userName=m.getUserName();
+            String bname=m.getBname();
+            String content="尊敬的"+userName+": "
+                    +"您于预约的"+bname
+                    +"已经入库,您可前往图书馆借阅.";
+            sendSimpleMail(m.getEmail(),subject,content);
+        }
+    }
+
+    @Override
+    public void processReturnReminder() {
         List<MailDetail> list= mailMapper.returnReminder();
         for(MailDetail m:list){
             String subject="你他娘倒是还书呀";

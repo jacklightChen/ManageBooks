@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MailMapper {
     List<MailDetail> returnReminder();
+    List<MailDetail> resReminder();
 }

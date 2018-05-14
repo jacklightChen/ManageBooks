@@ -14,19 +14,33 @@ public class emailController {
     @Autowired
     MailService mailService;
 
+
     @RequestMapping(value = "/{validation}/email",
             method = RequestMethod.GET)
-    public ProcessResult login(@PathVariable(value = "validation")Integer val){
-        ProcessResult pr;
+    public ProcessResult remindReturn(@PathVariable(value = "validation")Integer val){
+        ProcessResult pr=null;
         if(val==null)return new ProcessResult(false);
-        if(!val.equals(2018))return new ProcessResult(false);
-        try {
-            mailService.processReminder();
-            pr=new ProcessResult(true);
-        }catch (Exception e){
-            pr=new ProcessResult(false);
+        if(!val.equals("czctalent")&&!val.equals("czhtalent"))return new ProcessResult(false);
+        if(val.equals("czctalent")) {
+            /*提醒还书*/
+            try {
+                mailService.processReturnReminder();
+                pr = new ProcessResult(true);
+            } catch (Exception e) {
+                pr = new ProcessResult(false);
+            }
+        }else if(val.equals("czhtalent")){
+            /*提醒还书*/
+            try {
+                mailService.processResReminder();
+                pr = new ProcessResult(true);
+            } catch (Exception e) {
+                pr = new ProcessResult(false);
+            }
         }
         return pr;
     }
+
+
 
 }
