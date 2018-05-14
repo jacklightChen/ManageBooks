@@ -86,3 +86,4 @@
 管理员界面:
 ![添加界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro4.png)
 ![处理界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro5.png)
+![借阅界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro6.png)
