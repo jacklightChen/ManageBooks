@@ -44,7 +44,7 @@
     <!--</select>-->
 
     <insert id="addBookList">
-        call library.new_book(#{boolist.ISBN}, #{booklist.bname}, #{booklist.publisher}, #{booklist.writer},
+        call library.new_book(#{booklist.ISBN}, #{booklist.bname}, #{booklist.publisher}, #{booklist.writer},
                               #{booklist.ptime}, #{booklist.number}, #{booklist.operator}, #{location}, #{state})
     </insert>
 
