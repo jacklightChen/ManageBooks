@@ -13,8 +13,21 @@ spring:
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
+  mail:
+    host: smtp.163.com
+    username: managebooks@163.com
+    password: 654321bm
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+
 mybatis:
   mapper-locations: classpath:Mapper/*.xml
   type-aliases-package: cn.lightina.managebooks.pojo
   configuration:
     map-underscore-to-camel-case: true
+
+mail:
+  fromMail:
+    addr: managebooks@163.com
