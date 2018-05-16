@@ -45,4 +45,21 @@ public class LoginController {
             return "detail_user";
         }
     }
+
+    @GetMapping(value = "/homepage")
+    public String homepage(Model model,
+                           HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("user");
+        model.addAttribute("user", user);
+        return "detail_user";
+    }
+
+    @GetMapping(value = "admin/homepage")
+    public String adminhomepage(Model model,
+                           HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("user");
+        model.addAttribute("user", user);
+        return "detail_admin";
+    }
+
 }

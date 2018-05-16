@@ -23,7 +23,7 @@
     border: 3px solid #e4ecf4;
     box-shadow: 4px 5px 6px #f2f6f8;
     border-radius: 10px;
-    background-image: url(/static/lib/images/qc1.jpg);
+    /*//background-image: url(/static/lib/images/qc1.jpg);*/
     border-image-repeat: space;
     padding-left: 0px;
     padding-top:70px;
@@ -43,7 +43,7 @@
     border: 3px solid #e4ecf4;
     box-shadow: 4px 5px 6px #f2f6f8;
     border-radius: 10px;
-    background-image: url(/static/lib/images/qc2.jpg);
+    /*background-image: url(/static/lib/images/qc2.jpg);*/
     border-image-repeat: space;
     padding-left: 0px;
     padding-top:70px;
@@ -51,8 +51,8 @@
     padding-bottom:65px;
     min-width: 200px;
     margin: 22px 0 0 2.1%;
-    float: left;
     overflow: hidden;
     transition: all .3s;
     /*border-width: .03rem .03rem .03rem 1.01rem;*/
 }
+a{text-decoration:none;}
