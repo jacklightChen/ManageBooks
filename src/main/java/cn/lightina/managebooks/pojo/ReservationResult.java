@@ -1,5 +1,8 @@
 package cn.lightina.managebooks.pojo;
 
+import lombok.Data;
+
+@Data
 public class ReservationResult<T> {
     boolean success;
     T data;
@@ -14,13 +17,5 @@ public class ReservationResult<T> {
 
         this.success = success;
         this.data = data;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
     }
 }

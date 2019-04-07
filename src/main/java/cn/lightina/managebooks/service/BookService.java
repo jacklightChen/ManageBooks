@@ -5,14 +5,12 @@ import cn.lightina.managebooks.pojo.*;
 import java.util.List;
 
 public interface BookService {
-    /*user*/
+    // user
     List<BookList> getlist();
 
     List<BookList> getlistByQuery(String query);
 
     List<Book> getlistByuId(int userId);
-
-    int deleteByBId(int bookId);
 
     void processRes(String ISBN, User user);
 
@@ -20,7 +18,7 @@ public interface BookService {
 
     void returnBookById(int borrowId);
 
-    /*admin*/
+    // admin
     void addBookList(BookList booklist,int state);
 
     void insertBorrow(int reservationId,int operator);

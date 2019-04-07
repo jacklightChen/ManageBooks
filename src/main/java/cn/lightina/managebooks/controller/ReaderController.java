@@ -66,7 +66,6 @@ public class ReaderController {
         return "user_booklist";
     }
 
-    // TODO: 2018/5/12 czh
     @GetMapping(value = "/reservation")
     public String listResListById(Model model,
                                   HttpServletRequest request) {
@@ -87,7 +86,6 @@ public class ReaderController {
         return "user_borrow";
     }
 
-    // TODO: 2018/5/13 czh 还书
     @GetMapping(value = "{borrowId}/return")
     public String returnBookById(
             Model model,
@@ -101,7 +99,7 @@ public class ReaderController {
         return "user_borrow";
     }
 
-    /*admin*/
+    // admin
     @GetMapping(value = "/admin/books")
     public String showBook(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
@@ -111,7 +109,7 @@ public class ReaderController {
         return "admin_addbook";
     }
 
-    //添加图书
+    // 添加图书
     @RequestMapping(value = "/admin/books",
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
@@ -120,13 +118,9 @@ public class ReaderController {
                                  @RequestBody BookList bookList) {
         User user = (User) request.getSession().getAttribute("user");
         ProcessResult ar;
-        try {
-            bookList.setOperator(user.getUserId());
-            bookService.addBookList(bookList,0);
-            ar = new ProcessResult(true);
-        } catch (Exception e) {
-            ar = new ProcessResult(false);
-        }
+        bookList.setOperator(user.getUserId());
+        bookService.addBookList(bookList,0);
+        ar = new ProcessResult(true);
         return ar;
     }
 
@@ -155,7 +149,7 @@ public class ReaderController {
         return "admin_processreservation";
     }
 
-    /*查看借阅情况*/
+    // 查看借阅情况
     @GetMapping(
             value = "/admin/borrow")
     public String showBorrow(
@@ -168,7 +162,7 @@ public class ReaderController {
         return "admin_borrow";
     }
 
-    /*查看借阅情况*/
+    // 查看借阅情况
     @GetMapping(
             value = "/admin/delete")
     @ResponseBody

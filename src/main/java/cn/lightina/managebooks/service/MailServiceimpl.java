@@ -23,14 +23,14 @@ public class MailServiceimpl implements MailService{
 
     @Override
     public void processResReminder() {
-        List<MailDetail> list= mailMapper.returnReminder();
+        List<MailDetail> list= mailMapper.resReminder();
         for(MailDetail m:list){
             String subject="你他娘倒是来图书馆呀";
             String userName=m.getUserName();
             String bname=m.getBname();
             String content="尊敬的"+userName+": "
-                    +"您于预约的"+bname
-                    +"已经入库,您可前往图书馆借阅.";
+                    +"您预约的 《"+bname
+                    +"》 已经入库,您可前往图书馆借阅.";
             sendSimpleMail(m.getEmail(),subject,content);
         }
     }
@@ -44,8 +44,8 @@ public class MailServiceimpl implements MailService{
             String bname=m.getBname();
             String btime=m.getBtime();
             String content="尊敬的"+userName+": "
-                    +"您于 "+btime+" 借阅的"+bname
-                    +"已过截止日期,请您尽快还书！";
+                    +"您于 "+btime+" 借阅的 《"+bname
+                    +"》 已过截止日期,请您尽快还书！";
             sendSimpleMail(m.getEmail(),subject,content);
         }
     }

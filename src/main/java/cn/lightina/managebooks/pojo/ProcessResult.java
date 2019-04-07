@@ -1,19 +1,39 @@
 package cn.lightina.managebooks.pojo;
 
-/*添加图书结果的包装类*/
-public class ProcessResult {
-    boolean success;
+import lombok.Data;
 
-    public ProcessResult(boolean success) {
-        this.success = success;
+// 添加图书结果的包装类
+@Data
+public class ProcessResult<T> {
+    boolean status;
+    int total;
+    T data;
+    String message;
+
+    public ProcessResult(boolean status, int total, T data) {
+        this.status = status;
+        this.total = total;
+        this.data = data;
     }
 
-    public boolean isSuccess() {
-
-        return success;
+    public ProcessResult(boolean status) {
+        this.status = status;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public ProcessResult(boolean status, T data) {
+        this.status = status;
+        this.data = data;
+    }
+
+    public ProcessResult(boolean status, String message) {
+        this.status = status;
+        this.message = message;
+    }
+
+    public ProcessResult(boolean status, T data, String message) {
+        this.status = status;
+        this.data = data;
+        this.message = message;
     }
 }
+

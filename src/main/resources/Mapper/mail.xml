@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.lightina.managebooks.dao.MailMapper">
-    <select id="returnReminder">
+    <select id="returnReminder" resultType="MailDetail">
         select * from return_reminder;
     </select>
 
-    <select id="resReminder">
+    <select id="resReminder" resultType="MailDetail">
         select * from arrive_reminder;
     </select>
 </mapper>

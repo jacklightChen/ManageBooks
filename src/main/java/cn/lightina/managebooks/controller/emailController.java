@@ -14,30 +14,20 @@ public class emailController {
     @Autowired
     MailService mailService;
 
-
     @RequestMapping(value = "/{validation}/email",
             method = RequestMethod.GET)
-    public ProcessResult remindReturn(@PathVariable(value = "validation")Integer val){
+    public ProcessResult remindReturn(@PathVariable(value = "validation")String val){
         ProcessResult pr=null;
         if(val==null)return new ProcessResult(false);
         if(!val.equals("czctalent")&&!val.equals("czhtalent"))return new ProcessResult(false);
         if(val.equals("czctalent")) {
-            /*提醒还书*/
-            try {
-                mailService.processReturnReminder();
-                pr = new ProcessResult(true);
-            } catch (Exception e) {
-                pr = new ProcessResult(false);
-            }
+            // 提醒还书
+            mailService.processReturnReminder();
         }else if(val.equals("czhtalent")){
-            /*提醒还书*/
-            try {
-                mailService.processResReminder();
-                pr = new ProcessResult(true);
-            } catch (Exception e) {
-                pr = new ProcessResult(false);
-            }
+            // 提醒预约
+            mailService.processResReminder();
         }
+        pr = new ProcessResult(true);
         return pr;
     }
 

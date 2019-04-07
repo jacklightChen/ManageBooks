@@ -7,9 +7,9 @@ spring:
     mode: HTML5
   datasource:
         name: test
-        url: jdbc:mysql://115.159.112.233:3306/library?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-        username: root
-        password: qweasdzxc18czc
+        url: jdbc:mysql://115.159.206.60:3306/library?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true
+        username: ecnu
+        password: 123456
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
