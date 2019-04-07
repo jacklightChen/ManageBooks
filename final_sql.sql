@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `library` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `library`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)
 --
--- Host: 115.159.112.233    Database: library
+-- Host: localhost    Database: library
 -- ------------------------------------------------------
--- Server version	5.7.22-0ubuntu0.16.04.1
+-- Server version	5.7.24-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +16,7 @@ USE `library`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary view structure for view `arrive_reminder`
+-- Temporary table structure for view `arrive_reminder`
 --
 
 DROP TABLE IF EXISTS `arrive_reminder`;
@@ -50,18 +48,8 @@ CREATE TABLE `book` (
   KEY `bo_idx` (`ISBN`),
   CONSTRAINT `bo` FOREIGN KEY (`ISBN`) REFERENCES `booklist` (`ISBN`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `op2` FOREIGN KEY (`operator`) REFERENCES `manager` (`manager_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `book`
---
-
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (94,'9787115417305','图书流通室',0,6),(95,'9787115417305','图书阅览室',4,6),(96,'9787105201202','图书流通室',0,6),(97,'9787111421900','图书流通室',0,6),(98,'9787112021202','图书流通室',0,6),(99,'9787115449573','图书流通室',0,7),(100,'9787121254437','图书流通室',0,5),(101,'9787121254437','图书阅览室',4,6),(102,'9787166666666','图书流通室',0,6),(103,'9787188888888','图书流通室',0,6),(104,'9787188888888','图书阅览室',4,5),(105,'9787100000000','图书阅览室',4,5),(106,'9787199999999','图书流通室',0,6),(107,'9787199999999','图书流通室',0,6),(108,'9787199999999','图书流通室',0,6),(112,'9787199999999','图书流通室',0,6),(113,'9787199999999','图书流通室',0,6),(114,'9787199999999','图书流通室',0,6),(115,'1231231231231','图书流通室',0,6),(116,'1231231231231','图书流通室',0,6),(117,'1231231231231','图书流通室',0,6),(118,'1231231231231','图书流通室',0,6),(119,'1231231231231','图书流通室',0,6),(133,'9787132312312','杂居',0,5),(134,'9787132312312','杂居',0,5),(135,'9787132312312','杂居',0,5),(136,'9787132312312','杂居',0,5),(137,'9787132312312','杂居',0,5),(148,'1234567890123','图书流通室',0,5),(149,'1234567890123','图书流通室',0,5);
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `booklist`
@@ -86,16 +74,6 @@ CREATE TABLE `booklist` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `booklist`
---
-
-LOCK TABLES `booklist` WRITE;
-/*!40000 ALTER TABLE `booklist` DISABLE KEYS */;
-INSERT INTO `booklist` VALUES ('1231231231231','陈之豪教你把妹','路边社','陈续缘','2018-05-14',5,6),('1234567890123','他改变了大摩-钱晨传','QC出版社','钱晨','2018-05-14',2,5),('9787100000000','Qian\'s C Compiler——The speed of the art','南8-507','钱晨','2018-05-11',1,6),('9787105201202','优秀的人，从来不会没有女朋友','南8-507','钱晨','2018-05-11',1,6),('9787111421900','深入理解Java虚拟机','机械工业出版社','周志明','2013-06-01',1,7),('9787112021202','成为人生赢家之路','南8-507','钱晨','2018-05-11',1,6),('9787115417305','spring实战','人民邮电出版社','Craig Walls, 张卫滨','2016-04-01',2,6),('9787115449573','Docker开发指南','人民邮电出版社','Adrian Mouat','2017-04-01',1,5),('9787121254437','集体智慧编程','电子工业出版社','Toby Segaran','2015-03-01',2,5),('9787132312312','陈之豪和他的101个女朋友',NULL,'奇人轶事','2018-05-14',5,5),('9787166666666','名师钱老板带你飞——QCDB从0到1','南8-507','钱晨','2018-05-11',1,6),('9787188888888','钱老板教你如何正确划水','南8-507','钱晨','2018-05-11',2,6),('9787199999999','钱晨传','南8-507','钱晨','2018-05-13',6,6);
-/*!40000 ALTER TABLE `booklist` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `borrow`
 --
 
@@ -118,21 +96,11 @@ CREATE TABLE `borrow` (
   CONSTRAINT `boo` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `op3` FOREIGN KEY (`operator`) REFERENCES `manager` (`manager_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `re` FOREIGN KEY (`user_id`) REFERENCES `reader` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `borrow`
---
-
-LOCK TABLES `borrow` WRITE;
-/*!40000 ALTER TABLE `borrow` DISABLE KEYS */;
-INSERT INTO `borrow` VALUES (73,114,26,'2018-05-13 00:00:00','2018-05-15 00:00:00','2018-05-14 14:35:57',6),(74,108,26,'2018-05-13 23:54:21','2018-07-12 23:54:21','2018-05-14 14:36:08',6),(77,96,26,'2018-05-14 14:37:39','2018-07-13 14:37:39','2018-05-14 14:40:33',6),(78,114,26,'2018-05-14 15:01:04','2018-07-13 15:01:04','2018-05-14 15:01:23',6),(80,96,27,'2018-05-14 15:08:59','2018-07-13 15:08:59','2018-05-14 15:09:34',6),(81,96,27,'2018-05-14 15:13:26','2018-07-13 15:13:26','2018-05-14 15:13:29',6),(82,96,27,'2018-05-14 15:13:40','2018-07-13 15:13:40','2018-05-14 15:14:08',6),(83,96,26,'2018-05-14 15:14:31','2018-07-13 15:14:31','2018-05-14 15:14:36',6);
-/*!40000 ALTER TABLE `borrow` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Temporary view structure for view `borrow_detail`
+-- Temporary table structure for view `borrow_detail`
 --
 
 DROP TABLE IF EXISTS `borrow_detail`;
@@ -167,17 +135,8 @@ CREATE TABLE `logs` (
   PRIMARY KEY (`idlogs`),
   KEY `op4_idx` (`operator`),
   CONSTRAINT `op4` FOREIGN KEY (`operator`) REFERENCES `manager` (`manager_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `logs`
---
-
-LOCK TABLES `logs` WRITE;
-/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `manager`
@@ -194,16 +153,6 @@ CREATE TABLE `manager` (
   UNIQUE KEY `MID_UNIQUE` (`manager_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `manager`
---
-
-LOCK TABLES `manager` WRITE;
-/*!40000 ALTER TABLE `manager` DISABLE KEYS */;
-INSERT INTO `manager` VALUES (5,'123456','admin_czh'),(6,'123456','admin_czc'),(7,'123456','admin_qc');
-/*!40000 ALTER TABLE `manager` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `reader`
@@ -225,16 +174,6 @@ CREATE TABLE `reader` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reader`
---
-
-LOCK TABLES `reader` WRITE;
-/*!40000 ALTER TABLE `reader` DISABLE KEYS */;
-INSERT INTO `reader` VALUES (26,'czc_reader','123456','陈至成','13800138000','1966557473@qq.com'),(27,'czh_reader','123456','czh','00000000000','1966557473@qq.com');
-/*!40000 ALTER TABLE `reader` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `reservation`
 --
 
@@ -253,17 +192,8 @@ CREATE TABLE `reservation` (
   KEY `book_idx` (`book_id`),
   CONSTRAINT `book` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `re2` FOREIGN KEY (`user_id`) REFERENCES `reader` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reservation`
---
-
-LOCK TABLES `reservation` WRITE;
-/*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `reservation_arrived`
@@ -278,20 +208,11 @@ CREATE TABLE `reservation_arrived` (
   PRIMARY KEY (`reservation_arrived_id`),
   KEY `res_id_fk_idx` (`reservation_id`),
   CONSTRAINT `res_id_fk` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`reservation_id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reservation_arrived`
---
-
-LOCK TABLES `reservation_arrived` WRITE;
-/*!40000 ALTER TABLE `reservation_arrived` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reservation_arrived` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Temporary view structure for view `reservation_detail`
+-- Temporary table structure for view `reservation_detail`
 --
 
 DROP TABLE IF EXISTS `reservation_detail`;
@@ -308,7 +229,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `return_reminder`
+-- Temporary table structure for view `return_reminder`
 --
 
 DROP TABLE IF EXISTS `return_reminder`;
@@ -321,6 +242,181 @@ SET character_set_client = utf8;
  1 AS `bname`,
  1 AS `email`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping routines for database 'library'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `borrow_from_res` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrow_from_res`(IN res_id INT, IN op INT)
+BEGIN
+declare bid int;
+    declare uid int;
+    declare num int;
+    select count(*) into num from reservation where reservation_id=res_id;
+    if num > 0 then
+select book_id, user_id into bid, uid from reservation where reservation_id=res_id;
+insert into borrow(book_id, user_id, btime, deadline, operator) values (bid, uid, now(), date_add(now(), interval 60 day), op); 
+DELETE from reservation where book_id=bid;
+UPDATE book SET state=2 where book_id=bid;
+end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `do_sec_kill` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `do_sec_kill`(IN bn VARCHAR(30), IN uid INT, OUT st INT)
+BEGIN
+declare num int;
+    declare bid int;
+    select count(*) into num from book where ISBN=bn and state=0;
+if num > 0 then
+insert into reservation(user_id, book_id, deadline) values(uid, bid, date_add(now(), interval 10 day));
+update book set state=1 where book_id=bid;
+set st = 1;
+else
+set st=0;
+end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `make_reservation` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `make_reservation`(IN bn VARCHAR(30), IN uid INT, OUT st INT)
+BEGIN
+declare num int;
+    declare ispop int;
+    select count(*) into num from book where ISBN=bn and (state=0 or (state=2 and book_id not in (select reservation.book_id from reservation))) order by state;
+select is_popular into ispop from booklist where booklist.ISBN=bn;
+    if ispop > 0 then
+set st=-1;
+else
+if num > 0 then
+begin
+declare bid int;
+declare stat int;
+select state, book_id into stat, bid from book where ISBN=bn  and (state=0 or (state=2 and book_id not in (select reservation.book_id from reservation))) order by state limit 0, 1;
+if stat > 0 then
+begin
+insert into reservation(user_id, book_id) values(uid, bid);
+set st = 2;
+end;
+
+else
+begin
+insert into reservation(user_id, book_id, deadline) values(uid, bid, date_add(now(), interval 10 day));
+begin
+update book set state=1 where book_id=bid;
+end;
+set st = 1;
+end;
+end if;
+end;
+else
+set st=0;
+end if;
+end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `new_book` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `new_book`(IN ISBN  VARCHAR(30), IN bname VARCHAR(45), IN publisher VARCHAR(45), IN writer VARCHAR(45),
+                          IN ptime DATE, IN num INT, IN operator INT, IN location VARCHAR(45), IN state INT)
+BEGIN
+insert into booklist(ISBN,bname, publisher, writer, ptime, number, operator)values (ISBN, bname, publisher, writer, ptime, num, operator);
+BEGIN
+DECLARE i int;
+SET i=0;
+while i<num DO
+insert into book(ISBN,location,state,operator) values(ISBN,location,state,operator);
+SET i=i+1;
+end while;
+END;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `return_book` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `return_book`(IN bor_id INT)
+BEGIN
+declare num int;
+    declare bid int;
+declare n int;
+    declare resid int;
+    select count(*) into n from borrow where borrow_id=bor_id and rtime is null;
+    if n > 0 then
+select book_id into bid from borrow where borrow_id=bor_id;
+select count(*) into num from reservation where book_id=bid;
+if num > 0 then
+update borrow set rtime=now() where borrow_id=bor_id;
+update book set state=1 where book_id=bid;
+            update reservation set deadline=now() where book_id=bid;
+            select reservation_id into resid from reservation where book_id=bid;
+            insert into reservation_arrived (reservation_id) values (resid);
+else
+update borrow set rtime=now() where borrow_id=bor_id;
+update book set state=0 where book_id=bid;
+end if;
+end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `arrive_reminder`
@@ -403,4 +499,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16 22:14:16
+-- Dump completed on 2019-04-07 19:06:34
