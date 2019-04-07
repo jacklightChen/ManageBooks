@@ -24,7 +24,6 @@
 
 界面入口:  localhost:8080<br>
 管理员用户名: admin_czc 密码: 123456 (manager表)<br>
-
 普通用户名: czc_reader 密码: 123456 (reader表)<br>
 
 ### 目录结构
