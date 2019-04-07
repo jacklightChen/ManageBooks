@@ -1,0 +1,2 @@
+*.html linguist-language=java
+*.sql linguist-language=java
