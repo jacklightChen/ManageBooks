@@ -1,8 +1,4 @@
 # ManageBooks
-### WARNING
-
-![](./CONTENT.JPG)
-
 ### 简介
 一个基于SpringBoot+Thymeleaf渲染的图书管理系统<br>
 功能: <br>
@@ -106,3 +102,7 @@
 ![添加界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro4.png)
 ![处理界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro5.png)
 ![借阅界面](https://github.com/jacklightChen/managebooks/blob/master/src/main/resources/static/lib/images/managebooks_intro6.png)
+
+### WARNING
+
+![](./CONTENT.JPG)
