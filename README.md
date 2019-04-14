@@ -1,4 +1,5 @@
 # ManageBooks
+![License](https://img.shields.io/badge/license-Apache2-blue.svg)
 ### 简介
 一个基于SpringBoot+Thymeleaf渲染的图书管理系统<br>
 功能: <br>
