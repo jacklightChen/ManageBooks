@@ -1,6 +1,7 @@
 # ManageBooks
 ![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
 ### 简介
+**项目年久失修 仅供参考 ゜▽゜)ノ**  
 一个基于SpringBoot+Thymeleaf渲染的图书管理系统<br>
 功能: <br>
 用户: a.预约图书 b.查看预约记录 c.还书<br>
